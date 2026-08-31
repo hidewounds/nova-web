@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA — Demo Store</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #16181d;
+        }
+        .demo { text-align: center; padding: 24px; }
+        .demo h1 { font-size: 28px; margin-bottom: 8px; }
+        .demo p { color: #555; max-width: 480px; margin: 0 auto; }
+        .products { display: flex; gap: 16px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+        .product { background: #fff; border-radius: 12px; padding: 18px; width: 180px; box-shadow: 0 4px 14px rgba(0,0,0,.08); cursor: pointer; }
+        .product:hover { transform: translateY(-2px); }
+        .product .emoji { font-size: 40px; }
+        .product h3 { margin: 8px 0 2px; font-size: 15px; }
+        .product p { margin: 0; color: #777; }
+        code { background: #e5e7eb; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <h1>NOVA Widget Demo</h1>
+        <p>
+            This page simulates a business website with NOVA installed.
+            Click the <strong>N</strong> button (bottom right) to chat, or click products to fire behavior events.
+            Configure your integration key below — it is read from the script tag.
+        </p>
+
+        <div class="products">
+            <div class="product" data-product="runner-pro">
+                <div class="emoji">👟</div>
+                <h3>Runner Pro</h3>
+                <p>$129 · Shoes</p>
+            </div>
+            <div class="product" data-product="trail-x">
+                <div class="emoji">🥾</div>
+                <h3>Trail X</h3>
+                <p>$149 · Boots</p>
+            </div>
+            <div class="product" data-product="cloud-lite">
+                <div class="emoji">🩴</div>
+                <h3>Cloud Lite</h3>
+                <p>$59 · Sandals</p>
+            </div>
+        </div>
+
+        <p style="margin-top:32px;font-size:13px">
+            Setup: edit the <code>data-public-key</code> in this file with a key from
+            <a href="/admin/">the admin dashboard</a>.
+        </p>
+    </div>
+
+    <!-- ============================================================
+         NOVA INTEGRATION — replace data-public-key with your key.
+         ============================================================ -->
+    <script src="/widget/nova-tracker.js"
+            data-public-key="REPLACE_WITH_INTEGRATION_KEY"></script>
+
+    <script src="/widget/nova-widget.js"
+            data-public-key="REPLACE_WITH_INTEGRATION_KEY"
+            defer></script>
+
+    <script>
+        document.querySelectorAll(".product").forEach(function (card) {
+            card.addEventListener("click", function () {
+                if (window.NOVATracker) {
+                    window.NOVATracker.productView({
+                        productId: card.dataset.product,
+                        productName: card.querySelector("h3").textContent,
+                        price: parseFloat(card.querySelector("p").textContent.replace("$", ""))
+                    });
+                    alert("NOVA behavior event sent: product_view (" + card.dataset.product + ")");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

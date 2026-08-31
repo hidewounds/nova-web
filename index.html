@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA — Hire Your First AI Employee</title>
+<meta name="description" content="NOVA — dark-mode AI employee. 24/7 chat, memory, Chrono scheduling, Echo voice. One snippet. 14-day trial.">
+<link rel="stylesheet" href="nova.css">
+<meta property="og:title" content="NOVA — Hire Your First AI Employee">
+<meta name="theme-color" content="#050508">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="dot">N</span> NOVA</a>
+    <ul class="nav-links">
+      <li><a class="nl on" href="index.html">Home</a></li>
+      <li><a class="nl" href="features.html">Features</a></li>
+      <li><a class="nl" href="roles.html">Brain</a></li>
+      <li><a class="nl" href="pricing.html">Pricing</a></li>
+      <li><a class="nl" href="addons.html">Add-ons</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="pricing.html" class="hide-m" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13.5px;font-weight:600">Sign in</a>
+      <a href="checkout.html?plan=growth" class="btn btn-pri btn-sm">Start free trial</a>
+      <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-drawer" id="drawer">
+  <a href="index.html">Home</a>
+  <a href="features.html">Features</a>
+  <a href="roles.html">Brain</a>
+  <a href="pricing.html">Pricing</a><a href="addons.html">Add-ons</a>
+  <a href="checkout.html?plan=growth" class="btn btn-pri">Start free trial →</a>
+</div>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow violet rv">● Live — AI employee for your website</span>
+      <h1 class="rv d1">Hire your first <span class="grad">AI employee</span> <span class="line2">tonight<span class="cursor">_</span></span></h1>
+      <p class="sub rv d2">Embeddable AI that answers <b>24/7</b>, remembers every shopper, recovers carts from <b>your address</b> — books with <b>Chrono</b> and talks with <b>Echo</b> in 100+ languages. One snippet. Live in a day.</p>
+      <div class="ctas rv d3">
+        <a href="checkout.html?plan=growth" class="btn btn-pri btn-lg">Start 14-day free trial</a>
+        <a href="#showcase" class="btn btn-ghost btn-lg">Explore showcase ↓</a>
+      </div>
+      <!-- prompt bar -->
+      <div class="prompt-bar rv d3" style="margin-top:18px;max-width:520px">
+        <span style="color:var(--mut-2)">✦</span>
+        <input id="heroPrompt" placeholder="Ask about booking tomorrow…" autocomplete="off">
+        <button aria-label="Send">↗</button>
+      </div>
+      <div class="hero-stats rv d3">
+        <div class="stat"><b><span data-count="14" data-suffix="">14</span><i> days</i></b><span>free trial · cancel anytime</span></div>
+        <div class="stat"><b><span data-count="1" data-suffix="">1</span><i> snippet</i></b><span>paste &amp; go — no plugins</span></div>
+        <div class="stat"><b><span data-count="6" data-suffix="">6</span><i> patterns</i></b><span>unified brain</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual rv d2">
+      <div class="chat-card" id="liveChat">
+        <div class="chat-head">
+          <div class="av">N</div>
+          <div><div class="name">Nova · AI assistant</div><div class="status">online — replies in ~2s</div></div>
+          <span class="live">● Live demo</span>
+        </div>
+        <div class="bubbles" style="min-height:236px;max-height:300px;overflow:hidden;display:flex;flex-direction:column">
+          <div class="bubble a"><span class="tag">grounded answer</span>Hey! I'm Nova. Shoes under $100? Runner Pro restocked — or I can filter by your budget.</div>
+        </div>
+        <div class="quick-actions">
+          <button class="chip">Check size 42</button>
+          <button class="chip">Book tomorrow 3pm</button>
+          <button class="chip">Recover cart</button>
+        </div>
+        <div class="prompt-bar" style="margin-top:14px;padding:6px 6px 6px 14px">
+          <input id="chatInput" placeholder="Ask Nova anything…">
+          <button id="chatSend">↗</button>
+        </div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut-2);letter-spacing:.06em;text-transform:uppercase">
+        <span>🛡️ No hallucinations</span><span>·</span><span>🔒 Local-first</span><span>·</span><span>⚡ &lt;1s sync</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="trust">
+  <div class="trust-head">One snippet · Trusted for live stores &amp; booking sites</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="brand"><i>✦</i> One snippet</span>
+      <span class="brand"><i>⚡</i> 24/7 answers</span>
+      <span class="brand"><i>🧠</i> Remembers shoppers</span>
+      <span class="brand"><i>🎯</i> Proactive nudges</span>
+      <span class="brand"><i>⏱️</i> Chrono scheduling</span>
+      <span class="brand"><i>🎙️</i> Echo voice + 100 langs</span>
+      <span class="brand"><i>🛡️</i> Grounded only</span>
+      <span class="brand"><i>📧</i> Your address</span>
+      <span class="brand"><i>🔒</i> Local-first</span>
+      <span class="brand"><i>📈</i> Revenue analytics</span>
+    </div>
+  </div>
+  <div class="trust-stats wrap">
+    <span><b data-count="2400" data-suffix="+">0</b> demo conversations</span>
+    <span><b>&lt;1s</b> propagation</span>
+    <span><b data-count="100" data-suffix="">0</b> seats per slot</span>
+    <span><b data-count="200" data-suffix="+">0</b> personas</span>
+  </div>
+</div>
+
+<section id="showcase" style="padding-bottom:40px">
+  <div class="wrap center">
+    <span class="eyebrow cyan rv">Showcase</span>
+    <h2 class="h2 rv">Websites that <em>work</em> while you sleep.</h2>
+    <p class="lead rv">Drag → Scroll. Same snippet, different brand, different role.</p>
+  </div>
+  <div class="showcase">
+    <div class="showcase-track">
+      <div class="shot">
+        <div class="bar"><span class="dot2 r"></span><span class="dot2 y"></span><span class="dot2 g"></span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut-2)">be the first one to be here</span></div>
+        <div class="img">👟</div>
+        <div class="label"><b>be the first one to be here</b><span>be the first one to be here</span></div>
+      </div>
+      <div class="shot">
+        <div class="bar"><span class="dot2 r"></span><span class="dot2 y"></span><span class="dot2 g"></span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut-2)">be the first one to be here</span></div>
+        <div class="img">💈</div>
+        <div class="label"><b>be the first one to be here</b><span>be the first one to be here</span></div>
+      </div>
+      <div class="shot">
+        <div class="bar"><span class="dot2 r"></span><span class="dot2 y"></span><span class="dot2 g"></span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut-2)">be the first one to be here</span></div>
+        <div class="img">🌿</div>
+        <div class="label"><b>be the first one to be here</b><span>be the first one to be here</span></div>
+      </div>
+      <div class="shot">
+        <div class="bar"><span class="dot2 r"></span><span class="dot2 y"></span><span class="dot2 g"></span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut-2)">be the first one to be here</span></div>
+        <div class="img">☕</div>
+        <div class="label"><b>be the first one to be here</b><span>be the first one to be here</span></div>
+      </div>
+      <div class="shot">
+        <div class="bar"><span class="dot2 r"></span><span class="dot2 y"></span><span class="dot2 g"></span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut-2)">be the first one to be here</span></div>
+        <div class="img">🧘</div>
+        <div class="label"><b>be the first one to be here</b><span>be the first one to be here</span></div>
+      </div>
+      <div class="shot">
+        <div class="bar"><span class="dot2 r"></span><span class="dot2 y"></span><span class="dot2 g"></span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut-2)">be the first one to be here</span></div>
+        <div class="img">🎨</div>
+        <div class="label"><b>be the first one to be here</b><span>be the first one to be here</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap center rv"><a href="features.html" class="btn btn-light">Explore all features →</a></div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow violet rv">What is NOVA?</span>
+      <h2 class="h2 rv">Three pieces. One tireless employee.</h2>
+      <p class="lead rv">Customers talk to NOVA on your site. NOVA thinks with your knowledge + their history. You steer from one dashboard.</p>
+    </div>
+    <div class="bento">
+      <div class="card zone violet rv">
+        <div class="k">Zone 01 — Customer sees</div>
+        <h3>💬 A chat that sells &amp; supports</h3>
+        <ul>
+          <li>Widget matches your brand — glass or solid</li>
+          <li>Instant answers 24/7, no wait</li>
+          <li>Nudges when they hesitate / exit</li>
+          <li>Follow-ups from your address</li>
+        </ul>
+      </div>
+      <div class="card zone blue rv d1">
+        <div class="k">Zone 02 — NOVA thinks with</div>
+        <h3>🧠 Your business + their memory</h3>
+        <ul>
+          <li>Products, policies, FAQs</li>
+          <li>History, sizes, budgets, carts</li>
+          <li>Live views &amp; wishlists</li>
+          <li>Guard on every reply</li>
+        </ul>
+      </div>
+      <div class="card zone cyan rv d2">
+        <div class="k">Zone 03 — You control</div>
+        <h3>📊 One dashboard. No code.</h3>
+        <ul>
+          <li>Pick role &amp; tone in one click</li>
+          <li>Edit knowledge, test live</li>
+          <li>Chats, leads, revenue</li>
+          <li>One-click GDPR erasure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pipeline rv">
+      <div class="node active"><div class="nicon">🧭</div><b>Planning</b><span>prompt → roadmap</span></div>
+      <div class="node"><div class="nicon">🎨</div><b>Design</b><span>glass + system</span></div>
+      <div class="node"><div class="nicon">⚡</div><b>Frontend</b><span>widget &amp; chat</span></div>
+      <div class="node"><div class="nicon">🔗</div><b>Backend</b><span>Chrono · Echo</span></div>
+      <div class="node"><div class="nicon">🚀</div><b>Deploy</b><span>one snippet</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:rgba(255,255,255,.015);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow violet rv">Why teams pick NOVA</span>
+      <h2 class="h2 rv">Everything an employee would do.<br>Minus the salary.</h2>
+    </div>
+    <div class="grid4" style="margin-top:44px">
+      <div class="card feat glow rv"><div class="icon">💬</div><h3>24/7 AI chat</h3><p>Grounded in your knowledge — even at 3am. No hallucinations.</p></div>
+      <div class="card feat glow rv d1"><div class="icon">🧠</div><h3>Remembers shoppers</h3><p>Sizes, budgets, chats — personalized without being creepy.</p></div>
+      <div class="card feat glow rv d2"><div class="icon">📧</div><h3>Cart recovery</h3><p>From YOUR address. NOVA owns no inbox — you do.</p></div>
+      <div class="card feat glow rv d3"><div class="icon">🎯</div><h3>Proactive nudges</h3><p>Fires at most once per visit — gentle, not spam.</p></div>
+      <div class="card feat glow rv"><div class="icon">⏱️</div><h3>Chrono</h3><p>Ranked slots, 100-seat groups, round-robin — &lt;1s sync.</p></div>
+      <div class="card feat glow rv d1"><div class="icon">🎙️</div><h3>Echo voice</h3><p>Mic + phone, 100+ langs, word timestamps — self-hosted.</p></div>
+      <div class="card feat glow rv d2"><div class="icon">🛡️</div><h3>No hallucinations</h3><p>Traced to knowledge or quiet + human flag. Ever.</p></div>
+      <div class="card feat glow rv d3"><div class="icon">📈</div><h3>Revenue analytics</h3><p>Purchases attributed to conversations.</p></div>
+    </div>
+    <div class="guard dark rv" style="margin-top:40px">
+      <div class="shield">🛡️</div>
+      <div><h3>Anti-hallucination guarantee</h3><p>Every reply passes a grounding guard. If it's not in your knowledge base + real context, NOVA says so and offers a human. No invented prices. <a href="features.html" style="color:var(--violet-2);font-weight:700">Learn more →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roles">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow cyan rv">One brain, six patterns</span>
+      <h2 class="h2 rv">No roles. Just patterns that work.</h2>
+      <p class="lead rv">One unified brain learned 6 patterns via RLHF — support, sales, shopping, advisor, lead, general — and activates the right one fluidly for each situation. No stacking, no caps.</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role rv"><b>🛟 Support Pattern</b><span>Empathy + solution + check</span></div>
+      <div class="role rv d1"><b>💼 Sales Pattern</b><span>Value + close + needs</span></div>
+      <div class="role rv d2"><b>🛍️ Shopping Pattern</b><span>Options + comparison</span></div>
+      <div class="role rv"><b>⚖️ Advisor Pattern</b><span>Specs + transparency</span></div>
+      <div class="role rv d1"><b>🎯 Lead Pattern</b><span>Questions then present</span></div>
+      <div class="role rv d2"><b>🌐 General Pattern</b><span>Broadly adaptive</span></div>
+    </div>
+    <div class="center rv" style="margin-top:32px"><a href="roles.html" class="btn btn-light">Meet the unified brain →</a></div>
+    
+    <div class="card rv" style="margin-top:28px;padding:24px;background:linear-gradient(135deg, rgba(139,92,246,.07), rgba(6,182,214,.05));border:1px solid rgba(139,92,246,.18)">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center">
+        <div style="flex:1;min-width:260px">
+          <span class="eyebrow violet">New — Custom Agent Behaviour</span>
+          <h3 style="font-size:18px;margin:8px 0 8px;color:#fff">Your business, your rules — no prompt engineering.</h3>
+          <p style="color:var(--mut);font-size:13.5px;line-height:1.6">Growth: 3 rules · Scale: 10 · Unlimited: ∞. Create triggers like <b style="color:#fff">“refund” → Support + empathetic</b> or <b style="color:#fff">“under $100” → Sales boost 1.8×</b>. Fuses with learned patterns live.</p>
+          <a href="pricing.html" class="btn btn-pri btn-sm" style="margin-top:12px">See pricing & builder →</a>
+        </div>
+        <div style="flex:0 0 280px;background:rgba(5,5,8,.5);border:1px solid var(--line);border-radius:12px;padding:12px">
+          <div style="font-family:monospace;font-size:11px;color:var(--mut);margin-bottom:8px">EXAMPLE — 3 rules, Growth plan</div>
+          <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.18);border-radius:8px;padding:8px;margin-bottom:8px"><b style="font-size:12px;color:#fff">VIP Recovery</b> <span style="float:right;font-size:10px;background:rgba(239,68,68,.18);color:#fda4af;padding:2px 6px;border-radius:999px">support · p9</span><br><span style="font-size:11px;color:var(--mut)">refund, angry → empathetic</span></div>
+          <div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.18);border-radius:8px;padding:8px;margin-bottom:8px"><b style="font-size:12px;color:#fff">Under $100</b> <span style="float:right;font-size:10px;background:rgba(139,92,246,.18);color:#c4b5fd;padding:2px 6px;border-radius:999px">sales · p7</span><br><span style="font-size:11px;color:var(--mut)">budget → ask size first</span></div>
+          <div style="background:rgba(6,182,214,.08);border:1px solid rgba(6,182,214,.18);border-radius:8px;padding:8px"><b style="font-size:12px;color:#fff">Spec Hunter</b> <span style="float:right;font-size:10px;background:rgba(6,182,214,.18);color:#7dd3fc;padding:2px 6px;border-radius:999px">advisor · p6</span><br><span style="font-size:11px;color:var(--mut)">spec, warranty → cite titles</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guard light rv" style="margin-top:28px">
+    <div class="guard light rv" style="margin-top:28px">
+      <div class="shield">🧠</div>
+      <div><h3>One brain, not stacked roles</h3><p>Previously 9 roles stacked. Now one brain with 6 learned patterns — situation X → pattern Y via training, not prompt. Reward optimizes for task completion, not role adherence.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:rgba(255,255,255,.015);border-top:1px solid var(--line)">
+  <div class="wrap center">
+    <span class="eyebrow orange rv">Setup — done for you</span>
+    <h2 class="h2 rv">Live within one day. Three steps.</h2>
+    <div class="steps" style="text-align:left">
+      <div class="step rv"><h3>Paste one line</h3><p>We hand you a snippet. That's it — no plugins, no build. Works with any stack.</p><div class="time">⏱ 2 min</div></div>
+      <div class="step rv d1"><h3>We train it with you</h3><p>Products, policies, tone — our team loads knowledge on a live call.</p><div class="time">👥 Done with you</div></div>
+      <div class="step rv d2"><h3>Test-drive &amp; go live</h3><p>Chat in preview until it feels right. Flip switch. Collect chats.</p><div class="time">🚀 Same day</div></div>
+    </div>
+    <div class="rv" style="margin-top:36px"><a href="checkout.html?plan=growth" class="btn btn-pri btn-lg">Start free trial</a><p style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut-2)">14-day trial · No charge today · Cancel anytime</p></div>
+  </div>
+</section>
+
+<section id="pricing-preview">
+  <div class="wrap center">
+    <span class="eyebrow violet rv">Pricing — Unified Brain</span>
+    <h2 class="h2 rv">One brain. No skill caps.</h2>
+    <p class="lead rv">All plans include all 6 patterns. You pay for usage, not roles. Yearly = 2 months free + setup included.</p>
+    <div class="plans" style="text-align:left;max-width:1000px;margin:44px auto 0">
+      <div class="plan rv">
+        <h3>Launch</h3><p class="desc">Your first AI employee.</p>
+        <div class="price">$29<small>/mo</small></div><div class="setupchip">+ $99 setup</div>
+        <ul><li>Unified brain — 6 patterns</li><li>1k conversations</li><li>50 knowledge</li><li>Bookings + leads</li></ul>
+        <a href="pricing.html" class="btn btn-line btn-block" style="margin-top:18px">View</a>
+      </div>
+      <div class="plan hot rv d1">
+        <span class="hotbadge">MOST POPULAR</span>
+        <h3>Growth</h3><p class="desc">For growing teams.</p>
+        <div class="price">$79<small>/mo</small></div><div class="setupchip">+ $199 setup</div>
+        <ul><li><b>Everything in Launch</b> +</li><li>10k conversations</li><li>200 knowledge</li><li>Priority support</li></ul>
+        <a href="checkout.html?plan=growth" class="btn btn-pri btn-block" style="margin-top:18px">Start trial</a>
+      </div>
+      <div class="plan rv d2">
+        <h3>Scale</h3><p class="desc">Multi-site + voice.</p>
+        <div class="price">$199<small>/mo</small></div><div class="setupchip">+ $499 setup</div>
+        <ul><li><b>Everything in Growth</b> +</li><li>50k conversations</li><li>Voice + multilanguage</li><li>API + seats</li></ul>
+        <a href="pricing.html" class="btn btn-line btn-block" style="margin-top:18px">Compare</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow violet rv">FAQ</span>
+      <h2 class="h2 rv">Fair questions.</h2>
+    </div>
+    <div class="faq">
+      <details open class="rv"><summary>Will it hallucinate prices?</summary><p>No — #1 design rule. Grounding guard checks every claim against your knowledge + real context. If not there, it says so and flags human.</p></details>
+      <details class="rv"><summary>Emails from noreply@robot.ai?</summary><p>Opposite — via YOUR SMTP, from YOUR address. Customers only hear from you.</p></details>
+      <details class="rv"><summary>One widget, multiple agents?</summary><p>Yes — Multi-Agent. Primary leads, others kick in by topic. Growth/Scale 5, Unlimited 200+ — each keeps real actions.</p></details>
+      <details class="rv"><summary>Data stays private?</summary><p>Local-first — can run on your server. One-click GDPR erasure.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="rv">Your next hire doesn't need paperwork.</h2>
+    <p class="rv">Try NOVA free for 14 days. Keep the transcript — it sells itself.</p>
+    <a href="checkout.html?plan=growth" class="btn btn-pri btn-lg rv">Start free trial →</a>
+    <p class="rv" style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut-2)">NO LOCK-IN · SETUP DONE FOR YOU · LIVE IN ONE DAY</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html"><span class="dot">N</span> NOVA</a>
+        <p>AI employee for business websites. Glassmorphic, grounded, and fast.</p>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="roles.html">Roles</a></li><li><a href="pricing.html">Pricing</a><a href="addons.html">Add-ons</a></li></ul></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="features.html">Features</a></li><li><a href="roles.html">Roles</a></li><li><a href="pricing.html">Pricing</a><a href="addons.html">Add-ons</a></li></ul></div>
+      <div class="footer-col"><h4>Start</h4><ul><li><a href="checkout.html?plan=growth">Start trial</a></li><li><a href="mailto:hello@novaplatform.example">hello@novaplatform.example</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="yr"></span> NOVA</div>
+      <div><a href="pricing.html">Pricing</a><a href="addons.html">Add-ons</a><a href="features.html">Features</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<!-- NOVA assistant (all skills: support · sales · shopping · advisor · booking · leads) -->
+<script src="http://localhost:3000/widget/nova-tracker.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="http://localhost:3000" defer></script>
+<script src="http://localhost:3000/widget/nova-widget.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="http://localhost:3000" defer></script>
+</body>
+</html>

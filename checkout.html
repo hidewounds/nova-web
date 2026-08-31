@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — NOVA</title>
+<link rel="stylesheet" href="nova.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="dot">N</span> NOVA</a>
+    <ul class="nav-links">
+      <li><a class="nl" href="index.html">Home</a></li>
+      <li><a class="nl" href="features.html">Features</a></li>
+      <li><a class="nl" href="roles.html">Roles</a></li>
+      <li><a class="nl" href="pricing.html">Pricing</a></li>
+      <li><a class="nl" href="addons.html">Add-ons</a></li>
+    </ul>
+    <a href="pricing.html" class="btn btn-ghost btn-sm">← Back</a>
+  </div>
+</nav>
+
+<header class="pagehead" style="padding:52px 0;text-align:center">
+  <div class="wrap">
+    <span class="eyebrow violet rv">14-day free trial</span>
+    <h1 class="rv" style="font-size:clamp(28px,3.4vw,38px)">Start free — $0 today</h1>
+    <p class="rv" style="margin:8px auto 0;max-width:560px">No charge today. Cancel in one click. Secure and fast.</p>
+  </div>
+</header>
+
+<section style="padding-top:40px;padding-bottom:80px;background:var(--bg-2)">
+  <div class="wrap co">
+    <div class="panel" id="payPanel">
+      <h3 style="font-size:18px;margin-bottom:4px;color:#fff">Choose plan</h3>
+      <p style="font-size:13.5px;color:var(--mut);margin-bottom:18px">Yearly = setup free. Switch anytime.</p>
+
+      <label class="pill-opt" data-plan="launch"><input type="radio" name="plan" value="launch"><div><b>Launch</b><span>1k convos · 50 KB · no custom</span></div><div class="pr"><b id="op-launch">$29</b><span style="display:block;font-size:11px">/mo</span></div></label>
+      <label class="pill-opt" data-plan="growth"><input type="radio" name="plan" value="growth"><div><b>Growth ⭐</b><span>10k convos · 3 custom behaviours</span></div><div class="pr"><b id="op-growth">$79</b><span style="display:block;font-size:11px">/mo</span></div></label>
+      <label class="pill-opt" data-plan="scale"><input type="radio" name="plan" value="scale"><div><b>Scale</b><span>50k convos · 10 custom + voice</span></div><div class="pr"><b id="op-scale">$199</b><span style="display:block;font-size:11px">/mo</span></div></label>
+      <label class="pill-opt" data-plan="unlimited"><input type="radio" name="plan" value="unlimited"><div><b>Unlimited</b><span>∞ convos · ∞ custom · RLHF</span></div><div class="pr"><b id="op-unlimited">$499</b><span style="display:block;font-size:11px">/mo</span></div></label>
+
+      <div style="display:flex;gap:8px;margin:18px 0 6px">
+        <button type="button" class="btn btn-line btn-sm" id="cyM" onclick="setCycle('m')" style="flex:1">Monthly</button>
+        <button type="button" class="btn btn-line btn-sm" id="cyY" onclick="setCycle('y')" style="flex:1">Yearly <span style="color:var(--green)">· 2mo free</span></button>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+
+      <form id="payForm" novalidate>
+        <h3 style="font-size:16px;margin-bottom:14px;color:#fff;display:flex;gap:8px;align-items:center">Details <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--mut);background:rgba(255,255,255,.06);border:1px solid var(--line);padding:4px 8px;border-radius:999px">$0 today</span></h3>
+        <div class="fld"><label>Full name</label><input id="fName" placeholder="Ada Lovelace" autocomplete="name"></div>
+        <div class="fld"><label>Work email</label><input id="fEmail" type="email" placeholder="you@company.com"></div>
+        <div class="fld"><label>Card number</label><input id="fCard" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19"></div>
+        <div class="row2">
+          <div class="fld"><label>Expiry</label><input id="fExp" placeholder="MM/YY" maxlength="5"></div>
+          <div class="fld"><label>CVC</label><input id="fCvc" placeholder="123" maxlength="4"></div>
+        </div>
+        <div class="fld"><label>Country</label><select id="fCountry"><option>United States</option><option>United Kingdom</option><option>Germany</option><option>India</option><option>UAE</option><option>Other</option></select></div>
+        <button type="submit" class="btn btn-pri btn-block" id="payBtn" style="padding:16px">Start trial — $0.00 today</button>
+        <p style="font-size:12px;color:var(--mut);text-align:center;margin-top:10px">Demo — no real charge.</p>
+        <div class="secure">🔒 256-bit · SSL · Encrypted</div>
+      </form>
+
+      <div class="success" id="okPanel">
+        <div class="ok">✓</div>
+        <h3 style="font-size:22px">Welcome! 🎉</h3>
+        <p style="color:var(--mut);font-size:14.5px;max-width:360px;margin:8px auto 22px" id="okMsg">Trial started. We'll reach out in hours to train NOVA.</p>
+        <a class="btn btn-pri" href="index.html">Back home</a>
+      </div>
+    </div>
+
+    <div class="summary" style="position:sticky;top:92px">
+      <div class="panel">
+        <h3 style="font-size:16px;margin-bottom:14px;color:#fff">Order summary</h3>
+        <div class="sumrow"><span id="sPlan">Growth plan</span><span id="sSub">$79/mo</span></div>
+        <div id="sAddons"></div>
+        <div class="sumrow"><span>Setup</span><span id="sSetup" style="color:var(--green);font-weight:700">Included ✓</span></div>
+        <div class="sumrow" style="border:none;color:var(--green);font-weight:600"><span>Trial discount</span><span>−$<span id="sDisc">79</span>.00</span></div>
+        <div class="sumrow total"><span>Due today</span><span style="color:var(--green)">$0.00</span></div>
+        <p style="font-size:12.5px;color:var(--mut-2);margin-top:10px" id="sThen">Then $79/mo day 15. Cancel anytime.</p>
+        <div style="margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-size:13px;color:var(--mut);line-height:1.7">
+          ✅ Setup done <b style="color:#fff">for you</b><br>
+          ✅ Live in <b style="color:#fff">one day</b><br>
+          ✅ Glass widget, grounded answers<br>
+          ✅ Cancel one click
+        </div>
+      </div>
+      <div style="margin-top:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);display:flex;align-items:center;justify-content:center">💬</div>
+        <div style="font-size:13px"><b style="color:#fff;display:block">Need help?</b><span style="color:var(--mut)">hello@novaplatform.example</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--mut-2)"><div><b style="color:#fff">NOVA</b></div><div>© <span id="yr"></span> NOVA</div></div></div>
+</footer>
+<script src="app.js"></script>
+<script src="checkout.js"></script>
+<!-- NOVA assistant (all skills: support · sales · shopping · advisor · booking · leads) -->
+<script src="http://localhost:3000/widget/nova-tracker.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="http://localhost:3000" defer></script>
+<script src="http://localhost:3000/widget/nova-widget.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="http://localhost:3000" defer></script>
+</body>
+</html>

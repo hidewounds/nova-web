@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain — NOVA Unified</title>
+<link rel="stylesheet" href="nova.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="dot">N</span> NOVA</a>
+    <ul class="nav-links">
+      <li><a class="nl" href="index.html">Home</a></li>
+      <li><a class="nl" href="features.html">Features</a></li>
+      <li><a class="nl on" href="roles.html">Brain</a></li>
+      <li><a class="nl" href="pricing.html">Pricing</a></li>
+      <li><a class="nl" href="addons.html">Add-ons</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="checkout.html?plan=growth" class="btn btn-pri btn-sm">Start trial</a>
+      <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-drawer" id="drawer">
+  <a href="index.html">Home</a><a href="features.html">Features</a><a href="roles.html">Brain</a><a href="pricing.html">Pricing</a><a href="addons.html">Add-ons</a><a href="checkout.html?plan=growth" class="btn btn-pri">Start trial →</a>
+</div>
+
+<header class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow violet rv">Unified Brain — No Roles</span>
+    <h1 class="rv">One brain. Six learned patterns.<br><span style="background:var(--grad-violet);-webkit-background-clip:text;background-clip:text;color:transparent">Zero switching.</span></h1>
+    <p class="rv">We deleted roles. Server/src/core/config/roles.js and prompt.js are gone. Now one brain learns patterns via RLHF — customer support, sales, shopping, product advisor, lead qualification, general — and activates the right pattern fluidly for each situation. No labels, no caps.</p>
+    <p class="rv" style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut)">Training: rkinas/reasoning_models_how_to — DPO/PPO/GRPO · Reward: task completion + satisfaction + accuracy (NOT role-adherence) · 18.5k conversations</p>
+  </div>
+</header>
+
+<section style="padding-top:56px">
+  <div class="wrap">
+    <div class="grid3">
+      <div class="role-big rv"><div class="em">🛟</div><h3>Customer Support Pattern</h3><p>Patient, clear problem-resolution — empathy + actionable solutions + follow-up check. Learned from 2,400 real support chats.</p><span class="tone">learned, not prompted</span></div>
+      <div class="role-big rv d1"><div class="em">💼</div><h3>Sales Pattern</h3><p>Persuasive-energetic-but-not-pushy — value demonstration + natural close cues + need assessment. Learned from 3,100 sales.</p><span class="tone">learned, not prompted</span></div>
+      <div class="role-big rv d2"><div class="em">🛍️</div><h3>Shopping Assistant Pattern</h3><p>Find-compare-select — relevant options + comparison framing + needs assessment. Learned from 2,800 sessions.</p><span class="tone">learned, not prompted</span></div>
+      <div class="role-big rv"><div class="em">⚖️</div><h3>Product Advisor Pattern</h3><p>Technical-detail — accurate specs + comparisons + limitation transparency. Learned from 2,100 Q&As.</p><span class="tone">learned, not prompted</span></div>
+      <div class="role-big rv d1"><div class="em">🎯</div><h3>Lead Qualification Pattern</h3><p>Question-then-present — progressive qualification before offerings. Learned from 1,900 chats.</p><span class="tone">learned, not prompted</span></div>
+      <div class="role-big rv d2"><div class="em">🌐</div><h3>General Assistant Pattern</h3><p>Broadly-adaptive — draws on all patterns situationally, no constraints. Learned as meta-pattern from 5,200 mixed.</p><span class="tone">unified brain</span></div>
+    </div>
+
+    <div class="guard dark rv" style="margin-top:28px">
+      <div class="shield">🧠</div>
+      <div><h3>How it works — pattern learning, not role-switching</h3><p>Old: <code>ROLE: sales</code> constraint in prompt, 9 roles stacked. New: No <code>ROLE:</code> label. Agent assesses situation type (e.g., problem state → support pattern effective) via learned association <code>situation X → pattern Y</code> from training data. Reward optimizes for task completion, satisfaction, accuracy — not role-adherence. Result: fluid, situational response without announcing roles.</p><p style="margin-top:8px"><a href="https://github.com/rkinas/reasoning_models_how_to" style="color:var(--violet-2);font-weight:700">RLHF framework →</a> minimal_implementation/dpo_trainer.py · PPO/GRPO</p></div>
+    </div>
+    <div class="guard rv" style="margin-top:16px;background:rgba(255,255,255,.03)">
+      <div class="shield">🛡️</div>
+      <div><h3>Guardrails still enforced — but learned, not prompted per role</h3><p>Unified prompt still has FACTUAL GROUNDING: only claims supported by RELEVANT BUSINESS KNOWLEDGE, never invent price/availability. If not in KB → says so + offers human handoff. Gating now business-level only (capabilities toggles), not role-level. Training reward penalizes hallucination.</p></div>
+    </div>
+    <div class="guard rv" style="margin-top:16px;background:linear-gradient(135deg, rgba(139,92,246,.08), rgba(6,182,214,.06));border:1px solid rgba(139,92,246,.18)">
+      <div class="shield">✦</div>
+      <div><h3>Custom Agent Behaviour — your rules on top of learned patterns</h3><p>Growth: 3 rules · Scale: 10 · Unlimited: ∞ · Launch: 0 (add-on $15 for 5). Builder lives in Admin &amp; Portal → <b>Custom Behaviour</b>. Each rule: <code>trigger (keywords/phrase/regex) → primary pattern + tone + instructions + priority + weightBoost</code>. At inference, <code>assessSituation()</code> boosts your pattern when trigger matches; <code>buildUnifiedPrompt()</code> injects tone/instructions as “CUSTOM BEHAVIOURS”. Reward: still task/satisfaction/accuracy — custom is +10% bonus when triggered. No prompt hacks, no role labels.</p><p style="margin-top:8px"><a href="pricing.html" style="color:var(--violet-2);font-weight:700">Pricing →</a> · <a href="addons.html" style="color:var(--violet-2);font-weight:700">Add-ons →</a> · Example: <code>refund, angry → customer_support + “empathetic, concise” + “ask order ID first” (p9, 1.8×)</code></p></div>
+    </div>
+
+    <div class="guard rv" style="margin-top:16px;background:rgba(139,92,246,.06)">
+      <div class="shield">⚙️</div>
+      <div><h3>What was deleted</h3><p><code>server/src/core/config/roles.js</code> (292 lines, 9 AGENT_ROLES), <code>server/src/core/agent/prompt.js</code> (211 lines, ROLE: labels), <code>generated-roles.js</code> (195 personas), <code>personas.js</code>, <code>scripts/generate-roles.js</code>. Replaced by <code>server/src/core/agent/brain.js</code> (unified) + <code>training/</code> RLHF pipeline.</p></div>
+    </div>
+
+    <div class="center" style="margin-top:44px"><a href="pricing.html" class="btn btn-pri btn-lg rv">See unified pricing →</a><p class="muted" style="font-size:12px;margin-top:8px">All plans now include full 6 patterns — no extra agent fees.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="index.html"><span class="dot">N</span> NOVA</a><p>One brain. Six patterns. No limits.</p></div>
+      <div class="footer-col"><h4>Brain</h4><ul><li><a href="#">6 patterns</a></li><li><a href="https://github.com/rkinas/reasoning_models_how_to">RLHF</a></li></ul></div>
+      <div class="footer-col"><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
+      <div class="footer-col"><h4>Start</h4><ul><li><a href="checkout.html?plan=growth">Trial</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© <span id="yr"></span> NOVA — Unified Brain v2</div></div>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA — Hire Your First AI Employee | Embeddable AI Chat for Business Websites</title>
+<meta name="description" content="NOVA is an embeddable AI chat assistant for business websites. Answers customers 24/7, remembers preferences, recovers abandoned carts and emails from your own address. 14-day free trial.">
+<style>
+  :root{
+    --navy:#0b1526; --navy2:#101f38; --ink:#1a2536; --mut:#5b6b82;
+    --blue:#2563eb; --blue2:#3b82f6; --green:#10b981; --orange:#f97316;
+    --bg:#f7f9fc; --card:#ffffff; --line:#e5eaf1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  h1,h2,h3{line-height:1.2}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:72px 0}
+  .kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:#e8effe;border-radius:999px;padding:5px 14px;margin-bottom:14px}
+  .kicker.orange{color:#c2410c;background:#ffedd5}
+  .kicker.green{color:#047857;background:#d1fae5}
+  .lead{font-size:17.5px;color:var(--mut);max-width:720px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,21,38,.92);backdrop-filter:blur(8px)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{color:#fff;font-weight:800;font-size:20px;letter-spacing:.02em;text-decoration:none}
+  .logo b{color:var(--orange)}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a.nl{color:#c9d4e5;text-decoration:none;font-size:14.5px;font-weight:600}
+  nav a.nl:hover{color:#fff}
+  .btn{display:inline-block;border-radius:10px;padding:11px 22px;font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:.18s}
+  .btn-pri{background:var(--blue);color:#fff}
+  .btn-pri:hover{background:#1d4ed8;transform:translateY(-1px)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+  .btn-ghost:hover{border-color:#fff}
+  .btn-dark{background:var(--navy);color:#fff}
+  .btn-sm{padding:8px 16px;font-size:13.5px}
+
+  /* hero */
+  header.hero{background:radial-gradient(1100px 500px at 75% -10%,#1c3a6e 0%,var(--navy) 55%);color:#fff;padding:88px 0 96px;position:relative;overflow:hidden}
+  header.hero::after{content:"";position:absolute;inset:auto -140px -220px auto;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.16),transparent 65%)}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .hero h1{font-size:44px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+  .hero h1 span{color:var(--orange)}
+  .hero p.sub{font-size:18.5px;color:#b9c6dc;margin-bottom:28px;max-width:540px}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .mini{margin-top:22px;font-size:13px;color:#8fa0bb;display:flex;gap:18px;flex-wrap:wrap}
+  .hero .mini b{color:#c9d4e5}
+  .chatmock{background:#fff;border-radius:16px;padding:18px;color:var(--ink);box-shadow:0 30px 60px rgba(0,0,0,.35);max-width:360px;justify-self:end;width:100%}
+  .chatmock .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+  .chatmock .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
+  .chatmock .hd b{font-size:14.5px}.chatmock .hd i{font-style:normal;font-size:11.5px;color:var(--green);display:block}
+  .msg{max-width:85%;padding:9px 13px;border-radius:12px;font-size:13.5px;margin-bottom:9px}
+  .msg.a{background:#f1f5fb;border-bottom-left-radius:4px}
+  .msg.u{background:var(--blue);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+  .msg .tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:2px}
+
+  /* trust strip */
+  .strip{background:#fff;border-bottom:1px solid var(--line)}
+  .strip .wrap{display:flex;justify-content:space-around;padding:20px 24px;flex-wrap:wrap;gap:14px}
+  .strip div{font-size:13.5px;font-weight:600;color:var(--mut);display:flex;align-items:center;gap:8px}
+  .strip b{color:var(--green)}
+
+  /* zone explainer */
+  .zones{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .zone{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative}
+  .zone .zn{font-size:11px;font-weight:800;letter-spacing:.14em;color:#94a3b8;text-transform:uppercase}
+  .zone h3{font-size:19px;margin:6px 0 14px}
+  .zone.blue{border-top:4px solid var(--blue)} .zone.navy{border-top:4px solid var(--navy);background:var(--navy2);color:#dbe4f2}
+  .zone.green{border-top:4px solid var(--green)}
+  .zone ul{list-style:none;font-size:14px}
+  .zone li{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
+  .zone.navy li{border-color:#23395e}
+  .zone li:last-child{border:none}
+  .zone li::before{content:"→";color:var(--blue);font-weight:700}
+  .zone.green li::before{content:"✓";color:var(--green)}
+  .zone.navy li::before{content:"◆";color:var(--orange)}
+
+  /* features */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .feat .ic{width:40px;height:40px;border-radius:10px;background:#e8effe;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px}
+  .feat h3{font-size:15.5px;margin-bottom:6px}
+  .feat p{font-size:13.5px;color:var(--mut)}
+
+  /* roles */
+  .roles{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .role{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:16px 20px;min-width:230px;flex:1}
+  .role b{font-size:14.5px;display:block;margin-bottom:3px}
+  .role span{font-size:12.5px;color:var(--mut)}
+  .guard{background:linear-gradient(135deg,#0b1526,#132a4d);color:#dbe4f2;border-radius:18px;padding:44px;margin-top:46px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+  .guard .shield{font-size:52px}
+  .guard h3{color:#fff;font-size:22px;margin-bottom:8px}
+  .guard p{font-size:15px;color:#aab8cf;max-width:760px}
+
+  /* steps */
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;position:relative}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:22px;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:16.5px;margin:8px 0 8px}
+  .step p{font-size:13.5px;color:var(--mut)}
+
+  /* pricing */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;align-items:start}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;position:relative}
+  .plan.hot{border:2px solid var(--orange);transform:translateY(-8px);box-shadow:0 22px 44px rgba(249,115,22,.14)}
+  .plan .hotbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 14px;border-radius:999px}
+  .plan h3{font-size:17px}
+  .plan .price{font-size:38px;font-weight:800;margin:10px 0 0}
+  .plan .price small{font-size:14px;font-weight:600;color:var(--mut)}
+  .plan .setup{font-size:13px;color:#c2410c;background:#ffedd5;display:inline-block;border-radius:8px;padding:3px 10px;margin:8px 0 16px;font-weight:700}
+  .plan ul{list-style:none;margin-top:6px}
+  .plan li{font-size:13.8px;padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:8px}
+  .plan li::before{content:"✓";color:var(--green);font-weight:800}
+  .plan li.na{opacity:.45} .plan li.na::before{content:"—";color:#94a3b8}
+  .trial{text-align:center;margin-top:26px;font-size:14px;color:var(--mut)}
+  .trial b{color:var(--ink)}
+
+  /* faq */
+  .faq{max-width:800px;margin:36px auto 0}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+  summary{cursor:pointer;font-weight:700;font-size:15px}
+  details p{margin-top:10px;font-size:14px;color:var(--mut)}
+
+  /* cta + footer */
+  .cta{background:radial-gradient(900px 400px at 50% 120%,#1c3a6e,var(--navy));color:#fff;text-align:center;padding:80px 0}
+  .cta h2{font-size:32px;margin-bottom:12px}
+  .cta p{color:#b9c6dc;margin-bottom:28px}
+  footer{background:#080f1c;color:#7d8ca3;padding:34px 0;font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media(max-width:900px){
+    .hero .wrap,.zones,.steps,.plans,.guard{grid-template-columns:1fr}
+    .grid4{grid-template-columns:1fr 1fr}
+    .chatmock{justify-self:start}
+    nav ul{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">NO<b>V</b>A</a>
+    <ul>
+      <li><a class="nl" href="#what">What is NOVA</a></li>
+      <li><a class="nl" href="#features">Features</a></li>
+      <li><a class="nl" href="#roles">Roles</a></li>
+      <li><a class="nl" href="#pricing">Pricing</a></li>
+      <li><a class="nl" href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#pricing" class="btn btn-pri btn-sm">Start free trial</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker orange" style="background:rgba(249,115,22,.15);color:#fdba74">SaaS · AI employee for your website</span>
+      <h1>Hire your first <span>AI employee</span> tonight.</h1>
+      <p class="sub">NOVA is an embeddable AI chat assistant that answers your customers 24/7, remembers every shopper, recovers abandoned carts — and emails from <b>your own address</b>, not a robot's.</p>
+      <div class="ctas">
+        <a href="#pricing" class="btn btn-pri">Start 14-day free trial</a>
+        <a href="#what" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="mini"><span>⚡ Live in <b>one day</b></span><span>🔒 Local-first &amp; private</span><span>🚫 No lock-in, cancel anytime</span><span>🛡️ Anti-hallucination guardrails</span></div>
+    </div>
+    <div class="chatmock">
+      <div class="hd"><div class="av">N</div><div><b>Nova · AI assistant</b><i>● online — replies in seconds</i></div></div>
+      <div class="msg a"><span class="tag">grounded answer</span>Hey! I'm Nova. Looking for running shoes under $100? The Runner Pro ($129) just restocked — or I can show you what's within budget.</div>
+      <div class="msg u">Do you have it in size 42?</div>
+      <div class="msg a"><span class="tag">remembers you</span>Yes — sizes 7–12 are in stock. You left one in your cart earlier — want me to hold it? 🛒</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div><b>✦</b> One snippet to install</div>
+    <div><b>✦</b> 8 ready-made agent roles</div>
+    <div><b>✦</b> Fact-checked replies only</div>
+    <div><b>✦</b> Your data stays yours</div>
+    <div><b>✦</b> Setup done for you</div>
+  </div>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <span class="kicker">What is NOVA?</span>
+    <h2 style="font-size:30px">Three pieces. One tireless employee.</h2>
+    <p class="lead">Your customers talk to NOVA on your site. NOVA thinks with everything it knows about them and your business. You steer everything from one dashboard.</p>
+    <div class="zones">
+      <div class="zone blue">
+        <span class="zn">Zone 01</span>
+        <h3>💬 The Customer sees</h3>
+        <ul>
+          <li>A friendly chat widget on your storefront</li>
+          <li>Instant answers, 24/7 — no wait times</li>
+          <li>Smart nudges when they hesitate or try to leave</li>
+          <li>Follow-up emails that feel personally written</li>
+        </ul>
+      </div>
+      <div class="zone navy">
+        <span class="zn">Zone 02</span>
+        <h3>🧠 NOVA thinks with</h3>
+        <ul>
+          <li>Your products, policies &amp; FAQs (knowledge base)</li>
+          <li>Each customer's history &amp; remembered preferences</li>
+          <li>Live browsing behavior — views, carts, wishlists</li>
+          <li>A fact-check guard on every single reply</li>
+        </ul>
+      </div>
+      <div class="zone green">
+        <span class="zn">Zone 03</span>
+        <h3>📊 You control</h3>
+        <ul>
+          <li>Pick a role &amp; personality — or write your own rules</li>
+          <li>Edit knowledge, test-drive the agent live</li>
+          <li>Analytics: chats, leads, attributed revenue</li>
+          <li>One-click customer data erasure (GDPR-style)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" style="background:#eef2f8">
+  <div class="wrap">
+    <span class="kicker green">Features</span>
+    <h2 style="font-size:30px">Everything an employee would do. Minus the salary.</h2>
+    <div class="grid4">
+      <div class="feat"><div class="ic">💬</div><h3>24/7 AI chat</h3><p>Answers sales &amp; support questions instantly from your own knowledge base.</p></div>
+      <div class="feat"><div class="ic">🧠</div><h3>Remembers shoppers</h3><p>Sizes, budgets, past chats — NOVA personalizes every recommendation.</p></div>
+      <div class="feat"><div class="ic">🎯</div><h3>Proactive engagement</h3><p>Detects hesitation (idle or exit-intent) and opens the conversation first.</p></div>
+      <div class="feat"><div class="ic">📧</div><h3>Cart-recovery emails</h3><p>Automated follow-ups sent from YOUR email address — never a bot's.</p></div>
+      <div class="feat"><div class="ic">🎭</div><h3>8 agent roles</h3><p>Sales, support, booking, advisor… switch personality with one click.</p></div>
+      <div class="feat"><div class="ic">🛡️</div><h3>Fact-check guardrails</h3><p>Every reply is grounded against your knowledge. No invented prices. Ever.</p></div>
+      <div class="feat"><div class="ic">📈</div><h3>Revenue analytics</h3><p>See chats, captured leads and revenue attributed back to conversations.</p></div>
+      <div class="feat"><div class="ic">🔒</div><h3>Local-first privacy</h3><p>Can run entirely on your own machine. Customer data never has to leave.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roles">
+  <div class="wrap">
+    <span class="kicker">One click re-staffs your site</span>
+    <h2 style="font-size:30px">Pick a role. Or write your own.</h2>
+    <p class="lead">Roles change your agent's objective, tone and rules — they're data, not code. Switch anytime from the portal.</p>
+    <div class="roles">
+      <div class="role"><b>🛟 Customer Support</b><span>Patient, clear, escalates to humans gracefully</span></div>
+      <div class="role"><b>💼 Sales</b><span>Warm, confident, zero-pressure guidance</span></div>
+      <div class="role"><b>🛍️ Shopping Assistant</b><span>Discovery powered by remembered preferences</span></div>
+      <div class="role"><b>⚖️ Product Advisor</b><span>Honest comparisons, real trade-offs</span></div>
+      <div class="role"><b>📅 Booking Assistant</b><span>Collects details, confirms before finalizing</span></div>
+      <div class="role"><b>🎯 Lead Qualification</b><span>Finds need, timeline &amp; budget naturally</span></div>
+      <div class="role"><b>🌐 General Assistant</b><span>Broadly helpful, grounded in your knowledge</span></div>
+      <div class="role"><b>✏️ Custom</b><span>Your objective, tone and rules — verbatim</span></div>
+    </div>
+    <div class="guard">
+      <div class="shield">🛡️</div>
+      <div>
+        <h3>The anti-hallucination guarantee</h3>
+        <p>AI assistants get fired for making things up. Every NOVA reply passes a grounding guard: factual claims must trace back to your knowledge base and the customer's real context. If NOVA doesn't know, it says so — and offers to flag a human instead of inventing a price, a spec, or a delivery date.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:#eef2f8">
+  <div class="wrap">
+    <span class="kicker orange">Setup — done for you</span>
+    <h2 style="font-size:30px">Live within one day. Three steps.</h2>
+    <div class="steps">
+      <div class="step"><h3>Paste one line of code</h3><p>We hand you a snippet for your website. That's the entire installation — no plugins, no build step.</p></div>
+      <div class="step"><h3>We train it on your business</h3><p>Products, policies, FAQs, tone. Our team loads your knowledge and tunes the agent with you on a call.</p></div>
+      <div class="step"><h3>Test-drive &amp; go live</h3><p>Chat with your agent in the live preview until it feels exactly right. Flip the switch. Start collecting chats.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <span class="kicker green">Pricing</span>
+    <h2 style="font-size:30px">Pays for itself by week two.</h2>
+    <p class="lead">Every plan includes setup done FOR you, a 14-day free trial, and cancel-anytime. No per-chat fees. No surprises.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Launch</h3>
+        <div class="price">$29<small>/mo</small></div>
+        <div class="setup">+ $99 one-time setup</div>
+        <ul>
+          <li>1 website · 1 AI agent</li>
+          <li>All 8 agent roles (switch anytime)</li>
+          <li>Knowledge base up to 25 entries</li>
+          <li>Email capture &amp; customer profiles</li>
+          <li>Basic analytics dashboard</li>
+          <li>Community support</li>
+          <li class="na">Proactive engagement</li>
+          <li class="na">Abandoned-cart emails</li>
+        </ul>
+        <br><a href="#" class="btn btn-dark" style="width:100%;text-align:center">Start free trial</a>
+      </div>
+      <div class="plan hot">
+        <span class="hotbadge">MOST POPULAR</span>
+        <h3>Growth</h3>
+        <div class="price">$79<small>/mo</small></div>
+        <div class="setup">+ $199 one-time setup</div>
+        <ul>
+          <li><b>Everything in Launch</b></li>
+          <li>Proactive engagement (idle + exit-intent)</li>
+          <li>Abandoned-cart follow-up emails</li>
+          <li>Customer memory &amp; personalization</li>
+          <li>Unlimited knowledge entries</li>
+          <li>Weekly digest report to your inbox</li>
+          <li>Priority support</li>
+        </ul>
+        <br><a href="#" class="btn btn-pri" style="width:100%;text-align:center">Start free trial</a>
+      </div>
+      <div class="plan">
+        <h3>Scale</h3>
+        <div class="price">$199<small>/mo</small></div>
+        <div class="setup">+ $499 one-time setup</div>
+        <ul>
+          <li><b>Everything in Growth</b></li>
+          <li>Up to 5 websites</li>
+          <li>Custom roles &amp; full personality control</li>
+          <li>API access &amp; integrations (webhooks, n8n)</li>
+          <li>Team seats for your staff</li>
+          <li>Dedicated onboarding call</li>
+        </ul>
+        <br><a href="#" class="btn btn-dark" style="width:100%;text-align:center">Talk to us</a>
+      </div>
+    </div>
+    <p class="trial"><b>14-day free trial.</b> Go live with core chat, one role and guided setup — enough to feel the lift. Unlock seating, voice and full add-ons when you choose your plan. Cancel before day 14, pay nothing — no lock-in.</p>
+  </div>
+</section>
+
+<section id="faq" style="background:#eef2f8">
+  <div class="wrap">
+    <span class="kicker">FAQ</span>
+    <h2 style="font-size:30px">Fair questions.</h2>
+    <div class="faq">
+      <details open><summary>Will it make things up about my products?</summary><p>No. This was our #1 design rule. Every reply passes a grounding guard against your knowledge base — if the answer isn't there, NOVA says it doesn't know and offers to loop in a human. No invented prices, specs or delivery dates.</p></details>
+      <details><summary>Do the follow-up emails come from "noreply@robot.ai"? </summary><p>The opposite. NOVA owns no email identity — every message goes out through YOUR SMTP credentials, from YOUR address, signed as your team. Customers only ever hear from you.</p></details>
+      <details><summary>What does my customers' data go through?</summary><p>NOVA is local-first: it can run entirely on your own server, so conversations never have to leave your infrastructure. And you can permanently erase any customer's data with one click in the portal.</p></details>
+      <details><summary>How technical is setup really?</summary><p>You paste one line of code. Our team configures the knowledge base, picks the role with you, and reviews the launch. Most sites are live the same day.</p></details>
+      <details><summary>What if my customers hate chat widgets?</summary><p>NOVA waits politely by default. Proactive engagement is off unless you enable it, and even then it fires at most once per visit — a gentle nudge, never spam.</p></details>
+      <details><summary>Can it book appointments or qualify leads too?</summary><p>Yes — switch its role in the portal. Same engine, different objective and rules: booking collection flows, lead qualification questions, product advising and more.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Your next hire doesn't need onboarding paperwork.</h2>
+    <p>Try NOVA on your site free for 14 days. Keep the chat transcript — it sells itself.</p>
+    <a href="#pricing" class="btn btn-pri">Start your free trial</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#fff">NO<b style="color:var(--orange)">V</b>A</b> — the AI employee for business websites</div>
+    <div>hello@novaplatform.example · Runs local-first · © 2026 NOVA</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var SERVER = "http://127.0.0.1:3000";
+  var KEY = "nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da";
+  function inject(src){ var s=document.createElement("script"); s.src=SERVER.replace(/\/$/,"")+src; s.setAttribute("data-public-key",KEY); s.async=true; document.body.appendChild(s); }
+  inject("/widget/nova-tracker.js");
+  inject("/widget/nova-widget.js");
+})();
+</script>
+</body>
+</html>
