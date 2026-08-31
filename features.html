@@ -3,17 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Features — NOVA</title>
+<title>Docs — NOVA Platform</title>
 <link rel="stylesheet" href="nova.css">
+<style>
+  .endpoint{border:1px solid var(--line);border-radius:10px;padding:14px;background:rgba(255,255,255,.03);margin-bottom:12px}
+  .endpoint code{font-family:'JetBrains Mono',monospace;font-size:12px}
+  .method{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid var(--line);margin-right:8px}
+  .m-get{color:#6ee7b7;background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.22)}
+  .m-post{color:#a78bfa;background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.22)}
+  .code{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:#0a0c14;border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;white-space:pre;color:#e2e8f0}
+</style>
 </head>
 <body>
 <nav class="nav">
   <div class="wrap">
-    <a class="logo" href="index.html"><span class="dot">N</span> NOVA</a>
+    <a class="logo" href="index.html"><span class="dot">N</span> NOVA<span style="font-weight:500;color:var(--mut);font-size:13px;margin-left:6px">Platform</span></a>
     <ul class="nav-links">
       <li><a class="nl" href="index.html">Home</a></li>
-      <li><a class="nl on" href="features.html">Features</a></li>
+      <li><a class="nl on" href="features.html">Docs</a></li>
       <li><a class="nl" href="pricing.html">Pricing</a></li>
+      <li><a class="nl" href="roles.html">Brain</a></li>
     </ul>
     <div class="nav-actions">
       <a href="checkout.html?plan=growth" class="btn btn-pri btn-sm">Start trial</a>
@@ -22,32 +31,55 @@
   </div>
 </nav>
 <div class="mobile-drawer" id="drawer">
-  <a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="checkout.html?plan=growth" class="btn btn-pri">Start trial →</a>
+  <a href="index.html">Home</a><a href="features.html">Docs</a><a href="pricing.html">Pricing</a><a href="roles.html">Brain</a><a href="checkout.html?plan=growth" class="btn btn-pri">Start trial →</a>
 </div>
 
 <header class="pagehead">
   <div class="wrap">
-    <span class="eyebrow violet">Features</span>
-    <h1>Only what you need.</h1>
-    <p>Guide, chat, schedule, voice — minimal and precise.</p>
+    <span class="eyebrow violet">Documentation</span>
+    <h1>What NOVA can actually do</h1>
+    <p>Every endpoint, capability and pattern is allow-listed. No invented features.</p>
   </div>
 </header>
 
-<section style="padding-top:40px">
-  <div class="wrap grid4">
-    <div class="card feat glow rv"><div class="icon">🧭</div><h3>Guide</h3><p>Learns your site, tours with a pointer, ends “Ask on NOVA”.</p></div>
-    <div class="card feat glow rv"><div class="icon">💬</div><h3>Chat</h3><p>24/7, grounded, remembers shoppers.</p></div>
-    <div class="card feat glow rv"><div class="icon">⏱️</div><h3>Chrono</h3><p>Live scheduling, <1s sync.</p></div>
-    <div class="card feat glow rv"><div class="icon">🎙️</div><h3>Echo</h3><p>Voice + 100 languages, Whisper fallback.</p></div>
+<section style="padding-top:32px">
+  <div class="wrap">
+    <h3 style="margin:0 0 8px">Core endpoints</h3>
+    <p style="color:var(--mut);font-size:13.5px;margin:0 0 16px">Base: <code>https://nova-ai-omega-lemon.vercel.app</code> · Auth: <code>x-nova-key: nova_pk_...</code> for widget, <code>Bearer</code> for portal/admin.</p>
+
+    <div class="endpoint"><span class="method m-post">POST</span><code>/api/v1/widget/chat</code> — customer chat (grounded, memory, behavior).<div class="code" style="margin-top:8px">{"customerId":"visitor_123","messages":[{"role":"user","content":"Do you have size 42?"}]}</div></div>
+    <div class="endpoint"><span class="method m-get">GET</span><code>/api/v1/widget/config</code> / <code>/guide</code> / <code>/availability?days=14</code> — config, guide steps, ranked slots.</div>
+    <div class="endpoint"><span class="method m-post">POST</span><code>/api/v1/widget/transcribe</code> — mic note → Whisper fallback if sidecar off.<div class="code" style="margin-top:8px">{"audioBase64":"...","mimeType":"audio/webm"}</div></div>
+    <div class="endpoint"><span class="method m-post">POST</span><code>/api/portal/site/analyze</code> — <b>Portal</b> learns site: fetches <code>siteUrl</code>, extracts products/FAQs, creates knowledge, builds guide. <code>{siteUrl:"https://example.com"}</code></div>
+    <div class="endpoint"><span class="method m-post">POST</span><code>/api/v1/chat</code> — integration chat (server-to-server).</div>
+    <div class="endpoint"><span class="method m-get">GET</span><code>/api/portal/*</code> — knowledge, customers, chrono, voice, test chat (portal Bearer).</div>
+    <div class="endpoint"><span class="method m-get">GET</span><code>/api/admin/*</code> — businesses, plans, flags (admin Bearer, super for plans).</div>
   </div>
-  <div class="wrap center" style="margin-top:28px">
-    <a href="checkout.html?plan=growth" class="btn btn-pri">Start trial →</a>
+</section>
+
+<section style="background:rgba(255,255,255,.015);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <h3>How it works</h3>
+    <p style="color:var(--mut);font-size:13.5px;margin:6px 0 16px">Snippet → learn → guide → chat → schedule → voice. All via same brain.</p>
+    <div class="docs-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="doc-card"><h3>Guide</h3><p>Site analyzer → 6-step tour with pointer. Trigger: “guide me”.</p><code>guide.start</code></div>
+      <div class="doc-card"><h3>Knowledge</h3><p>FAQ/product/policy/info/document. Bulk CSV/JSON, search preview.</p><code>knowledge.search</code></div>
+      <div class="doc-card"><h3>Chrono</h3><p>Timezone, slot, buffer, hosts, overrides → ranked availability &lt;1s.</p><code>booking.availability</code></div>
+      <div class="doc-card"><h3>Echo</h3><p>Mic → transcribe (Whisper fallback) → TTS (OpenAI fallback) → handoff.</p><code>echo.transcribe</code></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <p style="color:var(--mut);font-size:13px">All that exists — no more, no less. See <a href="roles.html" style="color:#a78bfa">Brain</a> or <a href="pricing.html" style="color:#a78bfa">Pricing</a>.</p>
+    <a href="checkout.html?plan=growth" class="btn btn-pri" style="margin-top:12px">Start building →</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-bottom"><div>© <span id="yr"></span> NOVA</div><div><a href="index.html">Home</a><a href="pricing.html">Pricing</a></div></div>
+    <div class="footer-bottom"><div>© <span id="yr"></span> NOVA</div><div><a href="index.html">Home</a> · <a href="pricing.html">Pricing</a></div></div>
   </div>
 </footer>
 <script src="app.js"></script>
