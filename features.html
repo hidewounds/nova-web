@@ -53,6 +53,21 @@
       <div class="card feat glow rv d3"><div class="icon">🔒</div><h3>Local-first</h3><p>Run on your server. One-click erasure. Your data stays yours.</p></div>
     </div>
 
+    <div id="guide" style="margin-top:56px">
+      <div class="card glow rv" style="padding:32px;background:linear-gradient(135deg, rgba(139,92,246,.07), rgba(6,182,214,.05));border:1px solid rgba(139,92,246,.18)">
+        <div class="icon" style="background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.22)">🧭</div>
+        <h3>Guide — full operation website guide</h3>
+        <p style="margin-bottom:14px;color:var(--mut)">NOVA learns your site like a human: fetches pages, extracts products/prices/FAQs, auto-creates <b style="color:#fff">knowledge</b> (what you sell) — then guides in 6 short steps, <b style="color:#fff">pointing at real selectors</b> (glass highlight + arrow), ends with “Ask me any question on NOVA”. Chat stays operational — basics + booking + voice.</p>
+        <ul style="list-style:none;font-size:13.5px;color:var(--mut);line-height:1.8">
+          <li>✓ Auto-learn: products, FAQs, policies → knowledge</li>
+          <li>✓ Steps: Welcome → Browse → Detail → Cart → Checkout → Ask on NOVA</li>
+          <li>✓ Pointer overlay: highlights element, arrow, auto-scroll</li>
+          <li>✓ Widget trigger: “guide me” / “show me around”</li>
+        </ul>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"><span class="badge" style="background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.22);color:#c4b5fd">Human-like learn</span><span class="badge" style="background:rgba(6,182,214,.12);border-color:rgba(6,182,214,.22);color:#7dd3fc">Points at DOM</span><span class="badge" style="background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.22);color:#6ee7b7">Chat operational</span></div>
+      </div>
+    </div>
+
     <div id="chrono" style="margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:22px">
       <div class="card glow rv" style="padding:32px;border-top:1px solid rgba(139,92,246,.25)">
         <div class="icon" style="background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.22)">⏱️</div>
@@ -67,12 +82,12 @@
       </div>
       <div class="card glow rv d1" style="padding:32px;border-top:1px solid rgba(6,182,214,.25)">
         <div class="icon" style="background:rgba(6,182,214,.12);border-color:rgba(6,182,214,.22)">🎙️</div>
-        <h3>Echo — voice &amp; 100 langs</h3>
-        <p style="margin-bottom:14px;color:var(--mut)">Mic in widget, phone answering, auto-detect 100+ langs. Self-hosted. Word-level timestamps.</p>
+        <h3>Echo — voice &amp; 100 langs (now OpenAI fallback)</h3>
+        <p style="margin-bottom:14px;color:var(--mut)">Mic in widget, phone answering, auto-detect 100+ langs. Self-hosted + OpenAI Whisper/TTS fallback when sidecar off — works on Vercel.</p>
         <ul style="list-style:none;font-size:13.5px;color:var(--mut);line-height:1.8">
           <li>✓ Brand-aware prompt</li>
-          <li>✓ Searchable timestamps</li>
-          <li>✓ Handoff last resort</li>
+          <li>✓ Whisper fallback if sidecar missing</li>
+          <li>✓ OpenAI TTS (alloy/nova) fallback</li>
           <li>✓ “Hello, this is {business}…” greeting</li>
         </ul>
       </div>

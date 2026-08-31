@@ -43,7 +43,7 @@
     <div>
       <span class="eyebrow violet rv">● Live — AI employee for your website</span>
       <h1 class="rv d1">Hire your first <span class="grad">AI employee</span> <span class="line2">tonight<span class="cursor">_</span></span></h1>
-      <p class="sub rv d2">Embeddable AI that answers <b>24/7</b>, remembers every shopper, recovers carts from <b>your address</b> — books with <b>Chrono</b> and talks with <b>Echo</b> in 100+ languages. One snippet. Live in a day.</p>
+      <p class="sub rv d2">Embeddable AI that answers <b>24/7</b>, remembers every shopper, recovers carts from <b>your address</b> — books with <b>Chrono</b>, talks with <b>Echo</b> in 100+ languages, and now <b>guides</b> like a human: learns your site, points at real buttons, concludes with “Ask me any question on NOVA”. One snippet. Live in a day.</p>
       <div class="ctas rv d3">
         <a href="checkout.html?plan=growth" class="btn btn-pri btn-lg">Start 14-day free trial</a>
         <a href="#showcase" class="btn btn-ghost btn-lg">Explore showcase ↓</a>
@@ -98,6 +98,7 @@
       <span class="brand"><i>🎯</i> Proactive nudges</span>
       <span class="brand"><i>⏱️</i> Chrono scheduling</span>
       <span class="brand"><i>🎙️</i> Echo voice + 100 langs</span>
+      <span class="brand"><i>🧭</i> Full operation guide</span>
       <span class="brand"><i>🛡️</i> Grounded only</span>
       <span class="brand"><i>📧</i> Your address</span>
       <span class="brand"><i>🔒</i> Local-first</span>
@@ -153,6 +154,49 @@
     </div>
   </div>
   <div class="wrap center rv"><a href="features.html" class="btn btn-light">Explore all features →</a></div>
+</section>
+
+<section id="guide" style="padding:56px 0;background:linear-gradient(180deg, rgba(139,92,246,.06), rgba(6,182,214,.04));border-top:1px solid rgba(139,92,246,.14);border-bottom:1px solid rgba(139,92,246,.14)">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow violet rv">New — Full Operation Website Guide</span>
+      <h2 class="h2 rv">Learns your site like a human. Then <em>operates</em> it.</h2>
+      <p class="lead rv" style="max-width:720px;margin:14px auto 0">Link your website — NOVA fetches it, understands what you sell, auto-updates <b>knowledge & FAQs</b>, and builds a 6-step guide that <b>points at real elements</b> (product → cart → checkout) and ends with “Ask me any question on NOVA”. Chat stays fully operational — basics + guide.</p>
+    </div>
+    <div class="bento" style="margin-top:32px">
+      <div class="card zone violet rv">
+        <div class="k">Step 01 — Learn</div>
+        <h3>🧠 Understands your website</h3>
+        <ul>
+          <li>Crawls site, extracts products, prices, FAQs</li>
+          <li>Auto-creates knowledge — no manual paste</li>
+          <li>Detects ecommerce / booking / restaurant</li>
+        </ul>
+      </div>
+      <div class="card zone blue rv d1">
+        <div class="k">Step 02 — Guide & Point</div>
+        <h3>🧭 Points at real things</h3>
+        <ul>
+          <li>Glass overlay + arrow highlights selector</li>
+          <li>Short steps: Browse → Detail → Cart → Checkout</li>
+          <li>Auto scrolls, responsive, dismiss anytime</li>
+        </ul>
+      </div>
+      <div class="card zone cyan rv d2">
+        <div class="k">Step 03 — Conclude & Operate</div>
+        <h3>💬 Ends with “Ask on NOVA”</h3>
+        <ul>
+          <li>Final step opens chat for any question</li>
+          <li>Chat still knows basics + booking + voice</li>
+          <li>Widget: say “guide me” to re-run</li>
+        </ul>
+      </div>
+    </div>
+    <div class="center rv" style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="features.html#guide" class="btn btn-pri">See Guide in Features →</a>
+      <button class="btn btn-ghost" onclick="if(window.NOVA_GUIDE){fetch('https://nova-ai-omega-lemon.vercel.app/api/v1/widget/guide',{headers:{'x-nova-key':'nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da'}}).then(r=>r.json()).then(d=>{if(d.guide&&d.guide.steps) window.NOVA_GUIDE.start(d.guide.steps)}).catch(()=>alert('Link site in Portal first'))}else alert('Open via widget: guide me')">Preview guide overlay →</button>
+    </div>
+  </div>
 </section>
 
 <section id="what">
@@ -355,8 +399,8 @@
 </footer>
 
 <script src="app.js"></script>
-<!-- NOVA assistant (all skills: support · sales · shopping · advisor · booking · leads) -->
-<script src="http://localhost:3000/widget/nova-tracker.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="http://localhost:3000" defer></script>
-<script src="http://localhost:3000/widget/nova-widget.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="http://localhost:3000" defer></script>
+<!-- NOVA assistant (all skills: support · sales · shopping · advisor · booking · leads · guide) -->
+<script src="https://nova-ai-omega-lemon.vercel.app/widget/nova-tracker.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="https://nova-ai-omega-lemon.vercel.app" defer></script>
+<script src="https://nova-ai-omega-lemon.vercel.app/widget/nova-widget.js" data-public-key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da" data-api="https://nova-ai-omega-lemon.vercel.app" defer></script>
 </body>
 </html>
