@@ -1,6 +1,6 @@
-/* NOVA — CRAZY DARK interactions: cursor glow, magnetic, ticker, parallax, tilt, drag */
+﻿/* NOVA â€” CRAZY DARK interactions: cursor glow, magnetic, ticker, parallax, tilt, drag */
 (function(){
-  var SERVER="http://127.0.0.1:3000";
+  var SERVER="https://nova-ai-omega-lemon.vercel.app";
   var KEY="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da";
   function inject(src){
     if(document.querySelector('script[src*="'+src+'"]')) return;
@@ -49,7 +49,7 @@
     });
   } else { els.forEach(function(e){e.classList.add("in");}); }
 
-  // cursor glow — desktop only
+  // cursor glow â€” desktop only
   var glow=document.createElement("div"); glow.className="cursor-glow"; document.body.appendChild(glow);
   var isTouch = 'ontouchstart' in window;
   if(!isTouch){
@@ -65,7 +65,7 @@
     glow.style.display="none";
   }
 
-  // magnetic buttons — Framer inspo
+  // magnetic buttons â€” Framer inspo
   document.querySelectorAll(".btn").forEach(function(btn){
     if(isTouch) return;
     btn.addEventListener("mousemove",function(e){
@@ -82,7 +82,7 @@
     });
   });
 
-  // 3D tilt cards — subtle Framer liquid glass
+  // 3D tilt cards â€” subtle Framer liquid glass
   document.querySelectorAll(".card, .shot, .plan").forEach(function(card){
     if(isTouch) return;
     card.addEventListener("mousemove",function(e){
@@ -106,7 +106,7 @@
     },{passive:true});
   }
 
-  // number ticker — Squarespace stats
+  // number ticker â€” Squarespace stats
   function animateCount(el){
     var target=parseInt(el.getAttribute("data-count"),10);
     if(isNaN(target)) return;
@@ -131,7 +131,7 @@
   // hero typewriter for prompt input
   var promptInput=document.getElementById("heroPrompt");
   if(promptInput){
-    var phrases=["Ask about booking tomorrow…","Do you have size 42?","Recover my abandoned cart","Show running shoes under $100"];
+    var phrases=["Ask about booking tomorrowâ€¦","Do you have size 42?","Recover my abandoned cart","Show running shoes under $100"];
     var pi=0, ci=0, del=false, hold=0;
     function type(){
       var cur=phrases[pi];
@@ -152,7 +152,7 @@
     type();
   }
 
-  // showcase horizontal drag — Squarespace carousel
+  // showcase horizontal drag â€” Squarespace carousel
   document.querySelectorAll(".showcase-track").forEach(function(track){
     var isDown=false, startX, scrollLeft;
     track.addEventListener("mousedown",function(e){ isDown=true; track.classList.add("dragging"); startX=e.pageX - track.offsetLeft; scrollLeft=track.scrollLeft; });
@@ -177,7 +177,7 @@
     track.addEventListener("mouseenter",function(){ clearInterval(auto); });
   });
 
-  // agent pipeline active cycle — Emergent + Framer
+  // agent pipeline active cycle â€” Emergent + Framer
   var nodes=document.querySelectorAll(".pipeline .node");
   if(nodes.length){
     var ni=0;
@@ -188,13 +188,13 @@
     },1400);
   }
 
-  // hero chat demo — keep previous but enhanced
+  // hero chat demo â€” keep previous but enhanced
   var chat=document.getElementById("liveChat");
   if(chat){
     var steps=[
-      {who:"a", tag:"grounded answer", text:"Hey! I'm Nova — running shoes under $100? Runner Pro restocked, or I can show your budget picks."},
+      {who:"a", tag:"grounded answer", text:"Hey! I'm Nova â€” running shoes under $100? Runner Pro restocked, or I can show your budget picks."},
       {who:"u", text:"Do you have size 42?"},
-      {who:"a", tag:"remembers you", text:"Yes — 7–12 in stock. You left 42 in cart — hold it? 🛒"},
+      {who:"a", tag:"remembers you", text:"Yes â€” 7â€“12 in stock. You left 42 in cart â€” hold it? ðŸ›’"},
       {who:"u", text:"Book me tomorrow 3pm?"},
       {who:"a", tag:"chrono live", text:"Held tomorrow 3:00 PM for 5 min. Confirm to book?"}
     ];
@@ -226,7 +226,7 @@
           var b=document.createElement("div"); b.className="bubble u"; b.textContent=c.textContent;
           cont.appendChild(b); cont.scrollTop=cont.scrollHeight;
           setTimeout(function(){
-            var r=document.createElement("div"); r.className="bubble a"; r.innerHTML='<span class="tag">grounded answer</span>Got it — handling “'+c.textContent+'” with your live knowledge.';
+            var r=document.createElement("div"); r.className="bubble a"; r.innerHTML='<span class="tag">grounded answer</span>Got it â€” handling â€œ'+c.textContent+'â€ with your live knowledge.';
             cont.appendChild(r); cont.scrollTop=cont.scrollHeight;
           },700);
         });
@@ -239,7 +239,7 @@
           var b=document.createElement("div"); b.className="bubble u"; b.textContent=v;
           cont.appendChild(b); inp.value=""; cont.scrollTop=cont.scrollHeight;
           setTimeout(function(){
-            var r=document.createElement("div"); r.className="bubble a"; r.innerHTML='<span class="tag">grounded answer</span>On it — checked your store & memory. Want me to confirm details?';
+            var r=document.createElement("div"); r.className="bubble a"; r.innerHTML='<span class="tag">grounded answer</span>On it â€” checked your store & memory. Want me to confirm details?';
             cont.appendChild(r); cont.scrollTop=cont.scrollHeight;
           },700);
         }
@@ -264,3 +264,4 @@
   // year
   var y=document.getElementById("yr"); if(y) y.textContent=new Date().getFullYear();
 })();
+
