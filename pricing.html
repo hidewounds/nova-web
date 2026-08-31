@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — NOVA Unified Brain</title>
+<title>Pricing — NOVA</title>
 <link rel="stylesheet" href="nova.css">
 </head>
 <body>
@@ -13,7 +13,6 @@
     <ul class="nav-links">
       <li><a class="nl" href="index.html">Home</a></li>
       <li><a class="nl" href="features.html">Features</a></li>
-      <li><a class="nl" href="roles.html">Brain</a></li>
       <li><a class="nl on" href="pricing.html">Pricing</a></li>
     </ul>
     <div class="nav-actions">
@@ -23,189 +22,33 @@
   </div>
 </nav>
 <div class="mobile-drawer" id="drawer">
-  <a href="index.html">Home</a><a href="features.html">Features</a><a href="roles.html">Brain</a><a href="pricing.html">Pricing</a><a href="addons.html">Add-ons</a><a href="checkout.html?plan=growth" class="btn btn-pri">Start trial →</a>
+  <a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="checkout.html?plan=growth" class="btn btn-pri">Start trial →</a>
 </div>
 
-<header class="pagehead" style="text-align:center">
-  <div class="wrap">
-    <span class="eyebrow violet rv">Pricing — Unified Brain + Custom Behaviour</span>
-    <h1 class="rv">One brain. Six patterns. Your rules.</h1>
-    <p class="rv" style="margin:12px auto 0;max-width:680px">Previously we sold roles. Now NOVA is one unified brain that learns patterns via RLHF — and you teach it <b style="color:#fff">custom behaviours</b>: “when X happens, respond like Y”. Growth builds 3 custom rules, Scale 10, Unlimited unlimited + custom RLHF. You pay for usage + control, not skills.</p>
-    <div class="toggle rv" style="margin:28px auto 0">
-      <button id="cycM" class="on" onclick="setCycle('m')">Monthly</button>
-      <button id="cycY" onclick="setCycle('y')">Yearly <span class="save">2 months free</span></button>
-    </div>
+<header class="pagehead">
+  <div class="wrap center">
+    <span class="eyebrow violet">Pricing</span>
+    <h1>Simple.</h1>
+    <p>14-day trial. Cancel anytime.</p>
   </div>
 </header>
 
-<section style="padding-top:48px">
+<section>
   <div class="wrap">
-    <div class="plans">
-      <div class="plan rv">
-        <h3>Launch</h3><p class="desc">Your first AI employee.</p>
-        <div class="price">$<span id="pm-launch">29</span><small id="per-launch">/mo</small></div>
-        <div class="setupchip" id="ps-launch">+ $99 setup</div>
-        <ul>
-          <li><b>Unified brain</b> — all 6 patterns</li>
-          <li>1k conversations/mo</li>
-          <li>50 knowledge items</li>
-          <li>Bookings + leads + memory</li>
-          <li style="opacity:.65">Custom Behaviour — <span style="color:#fda4af">none (add-on $15/mo for 5 rules)</span></li>
-          <li>Basic analytics + Chrono</li>
-        </ul>
-        <a href="checkout.html?plan=launch" class="btn btn-line btn-block" id="pb-launch" style="margin-top:18px">Start trial</a>
-      </div>
-      <div class="plan hot rv d1">
-        <span class="hotbadge">MOST POPULAR</span>
-        <h3>Growth</h3><p class="desc">For growing teams.</p>
-        <div class="price">$<span id="pm-growth">79</span><small id="per-growth">/mo</small></div>
-        <div class="setupchip" id="ps-growth">+ $199 setup</div>
-        <ul>
-          <li><b>Everything in Launch</b> +</li>
-          <li><b>10k conversations/mo</b></li>
-          <li>200 knowledge items</li>
-          <li style="color:#a78bfa;font-weight:700">✦ Custom Behaviour Builder — 3 rules</li>
-          <li>Proactive + cart recovery</li>
-          <li>Priority support + Chrono</li>
-        </ul>
-        <a href="checkout.html?plan=growth" class="btn btn-pri btn-block" id="pb-growth" style="margin-top:18px">Start trial</a>
-      </div>
-      <div class="plan rv d2">
-        <h3>Scale</h3><p class="desc">Multi-site + voice.</p>
-        <div class="price">$<span id="pm-scale">199</span><small id="per-scale">/mo</small></div>
-        <div class="setupchip" id="ps-scale">+ $499 setup</div>
-        <ul>
-          <li><b>Everything in Growth</b> +</li>
-          <li><b>50k conversations/mo</b></li>
-          <li>500 knowledge items</li>
-          <li style="color:#06b6d4;font-weight:700">✦ Advanced Custom Behaviour — 10 rules</li>
-          <li>Voice Channel + Multilanguage</li>
-          <li>API + n8n + team seats</li>
-        </ul>
-        <a href="checkout.html?plan=scale" class="btn btn-line btn-block" id="pb-scale" style="margin-top:18px">Talk to us</a>
-      </div>
-      <div class="plan rv d3">
-        <span class="hotbadge" style="background:linear-gradient(135deg,#0f766e,#10b981)">ALL ACCESS</span>
-        <h3>Unlimited</h3><p class="desc">Custom training.</p>
-        <div class="price">$<span id="pm-unlimited">499</span><small id="per-unlimited">/mo</small></div>
-        <div class="setupchip" id="ps-unlimited">+ $999 setup</div>
-        <ul>
-          <li><b>Everything in Scale</b> +</li>
-          <li><b>Unlimited conversations & knowledge</b></li>
-          <li style="color:#10b981;font-weight:700">✦ Unlimited custom behaviours</li>
-          <li>Custom RLHF training (your data)</li>
-          <li>∞ sites + white-glove</li>
-          <li>Dedicated success</li>
-        </ul>
-        <a href="checkout.html?plan=unlimited" class="btn btn-pri btn-block" id="pb-unlimited" style="margin-top:18px">Talk to us</a>
-      </div>
+    <div class="plans" style="max-width:780px;margin:24px auto 0">
+      <div class="plan"><h3>Launch</h3><div class="price">$29<small>/mo</small></div><p class="desc">1k chats · Guide included</p><a href="checkout.html?plan=launch" class="btn btn-line btn-block">Choose</a></div>
+      <div class="plan hot"><span class="hotbadge">POPULAR</span><h3>Growth</h3><div class="price">$79<small>/mo</small></div><p class="desc">10k chats · Guide included</p><a href="checkout.html?plan=growth" class="btn btn-pri btn-block">Start trial</a></div>
+      <div class="plan"><h3>Scale</h3><div class="price">$199<small>/mo</small></div><p class="desc">50k chats · Guide included</p><a href="checkout.html?plan=scale" class="btn btn-line btn-block">Choose</a></div>
     </div>
-
-    <div class="addons rv">
-      <div class="addons-head"><h3 style="font-size:16px;color:#fff">What's changed from roles? + New: Custom Behaviour</h3><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut)">Unified Brain v2.1 — pattern learning + custom builder</span></div>
-      <div style="overflow:auto">
-      <table>
-        <tr><th>Before (roles)</th><th>Now (unified brain + custom behaviour)</th></tr>
-        <tr><td>9 roles, stack 1-5, Unlimited 200+ personas</td><td><b>One brain, 6 learned patterns</b> — no caps, fluid activation</td></tr>
-        <tr><td>Role-constraint prompts (ROLE: sales)</td><td><b>Pattern learning</b> — situation X → effective pattern Y via RLHF</td></tr>
-        <tr><td>Extra Agent +$15-25, Multi-Agent unlock</td><td><b>Removed</b> — all patterns included in every plan</td></tr>
-        <tr><td>No customisation</td><td><b>Custom Agent Behaviour Builder</b> — Launch 0, Growth 3, Scale 10, Unlimited ∞ (+$15 add-on for 5 extra on Launch)</td></tr>
-        <tr><td>Pricing by skills</td><td><b>Pricing by usage + control</b> — conversations + knowledge + custom rules</td></tr>
-        <tr><td>Reward: role-adherence</td><td><b>Reward: task completion + satisfaction + accuracy (+ custom bonus)</b></td></tr>
-        <tr><td>Chrono engine</td><td>Included in all plans</td></tr>
-      </table>
-      </div>
-    </div>
-
-    <!-- Custom Agent Behaviour Builder Showcase -->
-    <div class="card rv" style="margin-top:28px;padding:28px;background:linear-gradient(135deg, rgba(139,92,246,.08), rgba(6,182,214,.06));border:1px solid rgba(139,92,246,.18)">
-      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center">
-        <div style="flex:1;min-width:280px">
-          <span class="eyebrow violet">New — Custom Agent Behaviour</span>
-          <h3 style="font-size:22px;margin:8px 0 8px;color:#fff">Teach NOVA how <em style="color:#a78bfa">you</em> want it to behave.</h3>
-          <p style="color:var(--mut);font-size:14px;line-height:1.6">No code. In the dashboard, create rules like: “when customer says <b style="color:#fff">refund / complaint</b> → prioritize <b style="color:#fff">Support pattern</b> + empathetic tone + ‘escalate after 2 tries’”. The unified brain fuses your rule with learned patterns fluidly — you get control without prompt hacks.</p>
-          <ul style="margin:16px 0 0;padding:0;list-style:none;font-size:13.5px;color:var(--mut);line-height:1.9">
-            <li>✦ <b style="color:#fff">Trigger</b> — keywords, phrase, or situation (e.g., “VIP”, “under $100”)</li>
-            <li>✦ <b style="color:#fff">Pattern</b> — which of 6 patterns to emphasize (support/sales/shopping/advisor/lead/general)</li>
-            <li>✦ <b style="color:#fff">Tone + instructions</b> — “concise, no hedging”, “always ask size”</li>
-            <li>✦ <b style="color:#fff">Priority & boost</b> — 1–10, how strongly to override learned weights</li>
-          </ul>
-          <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-            <a href="addons.html" class="btn btn-pri">Build in add-ons →</a>
-            <a href="roles.html" class="btn btn-ghost">How patterns + custom fuse →</a>
-          </div>
-          <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut);margin-top:12px">Growth: 3 rules · Scale: 10 rules · Unlimited: ∞ · Launch add-on: +$15/mo for 5 extra · Example builder below ↓</p>
-        </div>
-        <div style="flex:0 0 340px;max-width:100%;background:rgba(5,5,8,.6);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 12px 40px rgba(0,0,0,.35)">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px">Builder preview — 3 rules</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.18);border-radius:10px;padding:10px 12px">
-              <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:13px;color:#fff">VIP Recovery</b><span style="font-size:11px;background:rgba(239,68,68,.18);color:#fda4af;padding:3px 7px;border-radius:999px">support · priority 9</span></div>
-              <div style="font-size:12px;color:var(--mut);margin-top:4px">Trigger: <code>refund, complaint, angry</code> → tone: <em>empathetic, concise</em></div>
-            </div>
-            <div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.18);border-radius:10px;padding:10px 12px">
-              <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:13px;color:#fff">Under $100 Closer</b><span style="font-size:11px;background:rgba(139,92,246,.18);color:#c4b5fd;padding:3px 7px;border-radius:999px">sales · priority 7</span></div>
-              <div style="font-size:12px;color:var(--mut);margin-top:4px">Trigger: <code>under $100, budget</code> → pattern boost 1.8× + “ask size first”</div>
-            </div>
-            <div style="background:rgba(6,182,214,.08);border:1px solid rgba(6,182,214,.18);border-radius:10px;padding:10px 12px">
-              <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:13px;color:#fff">Spec Hunter</b><span style="font-size:11px;background:rgba(6,182,214,.18);color:#7dd3fc;padding:3px 7px;border-radius:999px">advisor · priority 6</span></div>
-              <div style="font-size:12px;color:var(--mut);margin-top:4px">Trigger: <code>spec, compare, warranty</code> → transparent + cite titles</div>
-            </div>
-          </div>
-          <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,.04);border-radius:10px;border:1px dashed var(--line);font-size:12px;color:var(--mut);text-align:center">+ Add rule → Dashboard / Business Portal → Agent → Custom Behaviours</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="center" style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="addons.html" class="btn btn-pri">Configure voice, language & custom behaviour →</a><a href="features.html" class="btn btn-ghost">See all features</a></div>
-    <p class="center" style="margin-top:18px;color:var(--mut);font-size:14px"><b style="color:#fff">14-day trial.</b> Unified brain live — no role limits. Custom behaviours go live instantly. Cancel before day 14 = $0.</p>
-  </div>
-</section>
-
-<section style="border-top:1px solid var(--line)">
-  <div class="wrap center">
-    <span class="eyebrow violet rv">FAQ</span>
-    <h2 class="h2 rv">Fair questions.</h2>
-    <div class="faq" style="text-align:left">
-      <details open class="rv"><summary>Will it hallucinate?</summary><p>No — unified brain is still grounded in your knowledge. If not there → says so + offers human handoff. Reward optimizes for accuracy, not role. Custom behaviours never override grounding.</p></details>
-      <details class="rv"><summary>What happened to roles?</summary><p>Deleted. Server/src/core/config/roles.js and prompt.js removed. One brain learns 6 patterns (support, sales, shopping, advisor, lead, general) via RLHF and activates them situationally without labels.</p></details>
-      <details class="rv"><summary>What is Custom Agent Behaviour?</summary><p>A per-business builder in the dashboard. You define: trigger keywords → primary pattern + tone + instructions + priority. Example: trigger <code>refund</code> → support pattern, empathetic tone, boost 1.8×, priority 9. The brain merges your rule with learned weights fluidly — you steer without prompt engineering. Limits: Launch 0 (add-on $15 for 5), Growth 3, Scale 10, Unlimited ∞.</p></details>
-      <details class="rv"><summary>Do I need to reconfigure?</summary><p>No. Existing businesses were migrated to <code>unified</code> automatically. Your plan now gives full pattern access + custom builder (Growth+). Launch can enable via add-on.</p></details>
-      <details class="rv"><summary>Real actions?</summary><p>Yes — availability, bookings (confirm before), leads — all via business-level gating, not role gating. Custom behaviours can also set preferred pattern for action contexts.</p></details>
-      <details class="rv"><summary>Can I A/B test behaviours?</summary><p>On Scale you can create multiple rules with different priorities and watch analytics; on Unlimited we can also run custom RLHF training on your own conversations to bake the behaviour into the model.</p></details>
-    </div>
-    <div style="margin-top:40px" class="rv"><a href="checkout.html?plan=growth" class="btn btn-pri btn-lg">Start trial →</a></div>
+    <div class="wrap center" style="margin-top:20px"><p class="muted" style="font-size:13px;color:var(--mut)">All plans: dark glass theme, grounded answers, one snippet.</p></div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand"><a class="logo" href="index.html"><span class="dot">N</span> NOVA</a><p>One brain. Six patterns. No limits.</p></div>
-      <div class="footer-col"><h4>Plans</h4><ul><li><a href="#">Launch</a></li><li><a href="#">Growth</a></li><li><a href="#">Scale</a></li></ul></div>
-      <div class="footer-col"><h4>Brain</h4><ul><li><a href="roles.html">Patterns</a></li></ul></div>
-      <div class="footer-col"><h4>Start</h4><ul><li><a href="checkout.html?plan=growth">Trial</a></li></ul></div>
-    </div>
-    <div class="footer-bottom"><div>© <span id="yr"></span> NOVA — Unified Brain v2</div></div>
+    <div class="footer-bottom"><div>© <span id="yr"></span> NOVA</div><div><a href="index.html">Home</a></div></div>
   </div>
 </footer>
 <script src="app.js"></script>
-<script>
-var CYCLE={m:{launch:29,growth:79,scale:199,unlimited:499},y:{launch:290,growth:790,scale:1990,unlimited:4990}};
-var SETUP={m:{launch:"+ $99 setup",growth:"+ $199 setup",scale:"+ $499 setup",unlimited:"+ $999 setup"},y:{launch:"Setup free ✓",growth:"Setup free ✓",scale:"Setup free ✓",unlimited:"Setup free ✓"}};
-function setCycle(c){
-  document.getElementById("cycM").classList.toggle("on",c==="m");
-  document.getElementById("cycY").classList.toggle("on",c==="y");
-  ["launch","growth","scale","unlimited"].forEach(function(p){
-    document.getElementById("pm-"+p).textContent=CYCLE[c][p];
-    document.getElementById("per-"+p).textContent=c==="y"?"/yr":"/mo";
-    var chip=document.getElementById("ps-"+p);
-    chip.textContent=SETUP[c][p];
-    chip.className=c==="y"?"setupchip free":"setupchip";
-    var a=document.getElementById("pb-"+p); if(a) a.href="checkout.html?plan="+p+"&cycle="+c;
-  });
-}
-(function(){ var q=new URLSearchParams(location.search); if(q.get("cycle")==="y") setCycle("y"); })();
-</script>
 </body>
 </html>
