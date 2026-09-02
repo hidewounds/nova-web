@@ -29,6 +29,33 @@
     // also handle generic addons param from addons.html
     if(q.get("addon_extra_agent")) addons.extra_agent=Math.max(0, parseInt(q.get("addon_extra_agent"),10)||0);
   }catch(e){}
+  // ---- login required for purchase — collect under login ----
+  try{
+    var loginEmail=null; try{ loginEmail=localStorage.getItem('nova_web_login')||sessionStorage.getItem('nova_web_login'); }catch{}
+    if(!loginEmail){
+      // redirect to login, preserve checkout params
+      var next='checkout.html'+location.search;
+      location.href='login.html?next='+encodeURIComponent(next);
+      return;
+    }
+    // prefill form from login
+    var loginBiz=null; try{ loginBiz=localStorage.getItem('nova_web_login_biz'); }catch{}
+    // also show logged-in banner
+    setTimeout(function(){
+      var panel=document.getElementById('payPanel');
+      if(panel && loginEmail){
+        var banner=document.createElement('div');
+        banner.style.cssText='margin-bottom:14px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:rgba(16,185,129,.08);font-size:12.5px;display:flex;justify-content:space-between;align-items:center;gap:10px';
+        banner.innerHTML='<span>Logged in as <b>'+loginEmail+'</b>'+(loginBiz?' · '+loginBiz:'')+'</span><a href="login.html?next='+encodeURIComponent('checkout.html'+location.search)+'" style="font-size:12px;color:var(--violet);font-weight:700">Switch</a>';
+        panel.insertBefore(banner, panel.firstChild);
+        var fNameEl=document.getElementById('fName'); var fEmailEl=document.getElementById('fEmail');
+        if(fEmailEl && !fEmailEl.value) fEmailEl.value=loginEmail;
+        if(fNameEl && loginBiz && !fNameEl.value) fNameEl.value=loginBiz;
+        // also store identity for checkout
+        try{ var ident=JSON.parse(localStorage.getItem('nova_checkout_identity')||'{}'); ident.email=loginEmail; ident.businessName=loginBiz||ident.businessName; localStorage.setItem('nova_checkout_identity', JSON.stringify(ident)); }catch{}
+      }
+    }, 300);
+  }catch(e){}
 
   function $(id){return document.getElementById(id);}
   function setCycle(c){
@@ -190,7 +217,7 @@
         var addT=addonTotal();
         var total=PLANS[plan][cycle]+addT;
         if(msg) msg.textContent="Your 14-day free trial for "+PLANS[plan].label+" ("+(cycle==="y"?"yearly":"monthly")+")"+(addT?" + add-ons ($"+addT+"/"+(cycle==="y"?"yr":"mo")+")":"")+" has started. Total $"+total+"/"+(cycle==="y"?"yr":"mo")+" after trial. Our team will reach out within hours.";
-        // store purchased for portal demo
+        // store purchased for portal demo + under login for identification
         try{
           if(addons.extra_agent || addons.voice_channel || addons.multilanguage || addons.multi_unlock){
             let p=JSON.parse(localStorage.getItem("nova_purchased_roles")||"[]");
@@ -198,6 +225,19 @@
             if(addons.voice_channel && !p.includes("voice_receptionist")) p.push("voice_receptionist");
             localStorage.setItem("nova_purchased_roles", JSON.stringify(p));
             localStorage.setItem("nova_purchased_addons", JSON.stringify(addons));
+          }
+          // collect under login — easier to identify
+          var loginEmail=null; try{ loginEmail=localStorage.getItem('nova_web_login')||sessionStorage.getItem('nova_web_login'); }catch{}
+          if(loginEmail){
+            var purchase={email:document.getElementById('fEmail').value.trim(), name:document.getElementById('fName').value.trim(), business:(function(){ try{ return localStorage.getItem('nova_web_login_biz')||""; }catch{ return ""; }})(), plan:plan, cycle:cycle, addons:JSON.parse(JSON.stringify(addons)), at:Date.now(), total:total};
+            try{ localStorage.setItem('nova_purchase_'+loginEmail, JSON.stringify(purchase)); }catch{}
+            try{ localStorage.setItem('nova_checkout_identity', JSON.stringify({email:loginEmail, businessName:purchase.business, plan:plan, at:Date.now()})); }catch{}
+            try{ var list=JSON.parse(localStorage.getItem('nova_purchases')||'[]'); list.push(purchase); localStorage.setItem('nova_purchases', JSON.stringify(list)); }catch{}
+            // also report to NOVA AI for admin visibility (best-effort)
+            try{
+              var key="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da";
+              fetch("http://127.0.0.1:3000/api/v1/behavior",{method:"POST",headers:{"Content-Type":"application/json","x-nova-key":key},body:JSON.stringify({eventType:"purchase", customerId:loginEmail, eventData:{plan:plan, cycle:cycle, total:total, email:loginEmail}})});
+            }catch{}
           }
         }catch(e){}
         window.scrollTo({top:0, behavior:"smooth"});
