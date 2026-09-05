@@ -1,6 +1,6 @@
-﻿/* NOVA - CRAZY DARK interactions: cursor glow, magnetic, ticker, parallax, tilt, drag */
+/* NOVA - CRAZY DARK interactions: cursor glow, magnetic, ticker, parallax, tilt, drag */
 (function(){
-  var SERVER="https://nova-ai-omega-lemon.vercel.app";
+  var SERVER="http://127.0.0.1:3000";
   var KEY="nova_pk_40d32c478e27559616acfd7827347d437b1c207d3d9f1e1c0375759d81bbb6da";
   function inject(src){
     if(document.querySelector('script[src*="'+src+'"]')) return;
@@ -199,7 +199,7 @@
     var steps=[
       {who:"a", tag:"grounded answer", text:"Hey! I'm Nova - running shoes under $100? Runner Pro restocked, or I can show your budget picks."},
       {who:"u", text:"Do you have size 42?"},
-      {who:"a", tag:"remembers you", text:"Yes - 7-12 in stock. You left 42 in cart - hold it? 🛒"},
+      {who:"a", tag:"remembers you", text:"Yes - 7-12 in stock. You left 42 in cart - hold it? ??"},
       {who:"u", text:"Book me tomorrow 3pm?"},
       {who:"a", tag:"chrono live", text:"Held tomorrow 3:00 PM for 5 min. Confirm to book?"}
     ];
