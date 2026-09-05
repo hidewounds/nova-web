@@ -3,9 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — NOVA</title>
+<title>Pricing - NOVA</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23050508'/><rect x='14' y='14' width='72' height='72' rx='12' fill='none' stroke='rgba(255,255,255,.07)' stroke-width='2'/><text x='50' y='62' font-size='42' text-anchor='middle' fill='%23f1f5f9' font-family='Space Grotesk' font-weight='700'>N</text></svg>">
 <link rel="stylesheet" href="nova.css">
+<style>
+.yearly-badge{display:none;font-size:11px;font-weight:800;color:#10b981;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.22);padding:3px 8px;border-radius:999px;margin-left:8px}
+.yearly .yearly-badge{display:inline-block}
+.yearly-price{font-size:13px;color:var(--mut);margin-top:4px}
+.yearly-price b{color:#10b981}
+.toggle-wrap{display:flex;justify-content:center;gap:8px;margin:20px 0 36px}
+.toggle-wrap button{padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--mut);font-weight:700;cursor:pointer}
+.toggle-wrap button.on{background:#fff;color:#050508;border-color:#fff}
+</style>
 </head>
 <body>
 <nav class="nav">
@@ -23,35 +32,83 @@
   </div>
 </nav>
 <div class="mobile-drawer" id="drawer">
-  <a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="checkout.html?plan=growth" class="btn btn-pri">Start trial →</a>
+  <a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="pricing.html">Pricing</a>
 </div>
 
-<section>
+<section style="padding:28px 0 40px">
+  <div class="wrap" style="text-align:center;padding:0 0 16px">
+    <div class="toggle-wrap" style="margin:0">
+      <button id="btnM" class="on" onclick="setCycle('m')">Monthly</button>
+      <button id="btnY" onclick="setCycle('y')">Yearly <span style="color:#10b981">Â· 20% off</span></button>
+    </div>
+  </div>
   <div class="wrap">
-    <div class="plans" style="max-width:920px;margin:24px auto 32px">
-      <div class="plan"><h3>Launch</h3><div class="price">$29<small>/mo</small></div><p class="desc">1k chats · 50 knowledge · 0 custom rules</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7"><li>✓ Guide + chat</li><li>✓ Chrono</li></ul><a href="checkout.html?plan=launch" class="btn btn-line btn-block" style="margin-top:14px">Choose</a></div>
-      <div class="plan hot"><span class="hotbadge">POPULAR</span><h3>Growth</h3><div class="price">$79<small>/mo</small></div><p class="desc">10k chats · 200 knowledge · 3 rules</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7"><li>✓ Everything in Launch</li><li>✓ Custom behaviour (3)</li></ul><a href="checkout.html?plan=growth" class="btn btn-pri btn-block" style="margin-top:14px">Start trial</a></div>
-      <div class="plan"><h3>Scale</h3><div class="price">$199<small>/mo</small></div><p class="desc">50k chats · 500 knowledge · 10 rules + voice</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7"><li>✓ Everything in Growth</li><li>✓ Voice + multilanguage</li></ul><a href="checkout.html?plan=scale" class="btn btn-line btn-block" style="margin-top:14px">Choose</a></div>
-      <div class="plan" style="border-top:1px solid rgba(139,92,246,.22);background:linear-gradient(180deg, rgba(139,92,246,.08), rgba(255,255,255,.02))"><h3>Unlimited</h3><div class="price">$499<small>/mo</small></div><p class="desc">Unlimited chats · unlimited knowledge · unlimited rules</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7"><li>✓ Everything in Scale</li><li>✓ Custom RLHF training</li></ul><a href="checkout.html?plan=unlimited" class="btn btn-line btn-block" style="margin-top:14px">Contact</a></div>
+    <div class="plans" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch">
+      <div class="plan" data-plan="launch" data-price="29" data-yearly="348" style="display:flex;flex-direction:column"><h3>Launch</h3><div class="price" id="price-launch">$29<small>/mo</small> <span class="yearly-badge">20% off</span></div><div class="yearly-price" id="yr-launch"></div><p class="desc">1k chats Â· 50 knowledge</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7;flex:1"><li>âœ“ <b>1k</b> conversations</li><li>âœ“ <b>50</b> knowledge</li><li style="color:var(--mut-2)">âœ— Chrono</li><li style="color:var(--mut-2)">âœ— Echo</li><li style="color:var(--mut-2)">âœ— Voice / Multilanguage</li></ul><a href="checkout.html?plan=launch" class="btn btn-line btn-block" style="margin-top:14px">Choose</a></div>
+      <div class="plan hot" data-plan="growth" data-price="79" data-yearly="948" style="display:flex;flex-direction:column"><span class="hotbadge">POPULAR</span><h3>Growth</h3><div class="price" id="price-growth">$79<small>/mo</small> <span class="yearly-badge">20% off</span></div><div class="yearly-price" id="yr-growth"></div><p class="desc">10k chats Â· 200 knowledge + Chrono + Echo</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7;flex:1"><li>âœ“ <b>10k</b> conversations</li><li>âœ“ <b>200</b> knowledge</li><li>âœ“ <b>Chrono</b> Booking</li><li>âœ“ <b>Echo</b> English</li><li style="color:var(--mut-2)">âœ— Voice</li><li style="color:var(--mut-2)">âœ— Multilanguage</li><li style="color:var(--mut-2)">âœ— Custom rules</li></ul><a href="checkout.html?plan=growth" class="btn btn-pri btn-block" style="margin-top:14px">Start trial</a></div>
+      <div class="plan" data-plan="scale" data-price="199" data-yearly="2388" style="display:flex;flex-direction:column"><h3>Scale</h3><div class="price" id="price-scale">$199<small>/mo</small> <span class="yearly-badge">20% off</span></div><div class="yearly-price" id="yr-scale"></div><p class="desc">50k chats Â· 500 knowledge Â· 10 rules</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7;flex:1"><li>âœ“ <b>50k</b> conversations</li><li>âœ“ <b>500</b> knowledge</li><li>âœ“ <b>Chrono</b></li><li>âœ“ <b>Echo</b> English</li><li>âœ“ <b>Voice Channel</b></li><li>âœ“ <b>Multilanguage</b> 100+</li><li>âœ“ <b>10</b> custom rules</li></ul><a href="checkout.html?plan=scale" class="btn btn-line btn-block" style="margin-top:14px">Choose</a></div>
+      <div class="plan" style="border-top:1px solid rgba(139,92,246,.22);background:linear-gradient(180deg, rgba(139,92,246,.08), rgba(255,255,255,.02));display:flex;flex-direction:column" data-plan="custom" data-yearly="5988" data-price="499"><h3>Custom</h3><div class="price" id="price-custom">Custom<small></small> <span class="yearly-badge">20% off bespoke</span></div><div class="yearly-price" id="yr-custom"></div><p class="desc">Unlimited Â· bespoke</p><ul style="list-style:none;padding:0;margin:10px 0 0;font-size:13px;color:var(--mut);line-height:1.7;flex:1"><li>âœ“ <b>âˆž</b> conversations</li><li>âœ“ <b>âˆž</b> knowledge</li><li>âœ“ <b>âˆž</b> custom rules</li><li>âœ“ <b>Chrono + Echo + Voice + Multilanguage</b></li><li>âœ“ <b>Custom RLHF</b> training</li><li>âœ“ Full analysis</li></ul><a href="#" onclick="alert('Book a Call â€” calendly');return false" class="btn btn-pri btn-block" style="margin-top:14px">Book a Call</a></div>
     </div>
-    <div class="wrap" style="max-width:780px;margin:24px auto 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0">
-      <h2 class="eyebrow violet rv" style="text-align:center;margin-bottom:16px">Add-ons</h2>
-      <p style="text-align:center;color:var(--mut);font-size:13px;margin:0 0 16px">Add to any plan</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
-        <div class="card" style="padding:16px;text-align:center"><b>Voice Channel</b><p style="color:var(--mut);font-size:12.5px;margin:6px 0">Phone + widget mic, 100 langs</p><b>$29/mo</b></div>
-        <div class="card" style="padding:16px;text-align:center"><b>Multilanguage</b><p style="color:var(--mut);font-size:12.5px;margin:6px 0">Auto-translate all replies</p><b>$19/mo</b></div>
-        <div class="card" style="padding:16px;text-align:center"><b>Custom Pack</b><p style="color:var(--mut);font-size:12.5px;margin:6px 0">+5 guide rules</p><b>$15</b></div>
+    <div style="height:1px;background:var(--line);margin:48px auto 32px;max-width:900px"></div>
+    <div class="wrap" style="max-width:900px;margin:0 auto;text-align:center">
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:linear-gradient(135deg, rgba(139,92,246,.14), rgba(6,182,214,.10));border:1px solid rgba(139,92,246,.22);backdrop-filter:blur(8px);margin:0 auto 20px">
+        <span style="width:8px;height:8px;border-radius:50%;background:#8b5cf6;box-shadow:0 0 10px rgba(139,92,246,.6)"></span>
+        <span style="font-family:JetBrains Mono,monospace;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c4b5fd">Add-ons</span>
+        <span style="font-size:12px;color:var(--mut)">â€” extend any plan</span>
       </div>
-      <div style="text-align:center;margin-top:16px"><a href="checkout.html" class="btn btn-pri">Add add-on for your plan →</a></div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:stretch">
+        <div class="card" style="padding:16px;text-align:center;display:flex;flex-direction:column"><b>Chrono</b><p style="flex:1;color:var(--mut);font-size:12.5px;margin:6px 0">Booking & schedule</p><b style="margin-top:12px;display:block">$29/mo</b></div>
+        <div class="card" style="padding:16px;text-align:center;display:flex;flex-direction:column"><b>Echo</b><p style="flex:1;color:var(--mut);font-size:12.5px;margin:6px 0">English TTS/STT in chat</p><b style="margin-top:12px;display:block">$19/mo</b></div>
+        <div class="card" style="padding:16px;text-align:center;display:flex;flex-direction:column"><b>Voice Channel</b><p style="flex:1;color:var(--mut);font-size:12.5px;margin:6px 0">Phone + widget mic</p><b style="margin-top:12px;display:block">$29/mo</b></div>
+        <div class="card" style="padding:16px;text-align:center;display:flex;flex-direction:column"><b>Multilanguage</b><p style="flex:1;color:var(--mut);font-size:12.5px;margin:6px 0">100+ auto</p><b style="margin-top:12px;display:block">$19/mo</b></div>
+        <div class="card" style="padding:16px;text-align:center;display:flex;flex-direction:column"><b>Custom Pack</b><p style="flex:1;color:var(--mut);font-size:12.5px;margin:6px 0">+5 rules</p><b style="margin-top:12px;display:block">$15</b></div>
+      </div>
+      <div style="text-align:center;margin-top:20px">
+        <a href="checkout.html" class="btn btn-pri">Add add-ons for your plan â†’</a>
+      </div>
     </div>
+
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-bottom"><div>© <span id="yr"></span> NOVA</div><div><a href="index.html">Home</a></div></div>
+    <div class="footer-bottom"><div>Â© <span id="yr"></span> NOVA â€” Test pricing</div><div><a href="pricing.html">Live pricing</a></div></div>
   </div>
 </footer>
 <script src="app.js"></script>
+<script>
+let cycle='m';
+function setCycle(c){
+  cycle=c;
+  document.getElementById('btnM').classList.toggle('on', c==='m');
+  document.getElementById('btnY').classList.toggle('on', c==='y');
+  document.body.classList.toggle('yearly', c==='y');
+  document.querySelectorAll('.plan[data-price]').forEach(el=>{
+    const base=parseFloat(el.dataset.price);
+    const yearlyTotal=parseFloat(el.dataset.yearly);
+    const yrEl=document.getElementById('yr-'+el.dataset.plan);
+    const priceEl=document.getElementById('price-'+el.dataset.plan);
+    if(c==='y' && !isNaN(base) && !isNaN(yearlyTotal)){
+      const perMonth=Math.round(base*0.8*100)/100;
+      const save=Math.round((base-perMonth)*12);
+      const yearlyBilled=Math.round(perMonth*12);
+      // top = yearly total, below = per month after 20% off
+      if(priceEl) priceEl.innerHTML='$'+yearlyBilled+'<small>/yr</small> <span class="yearly-badge">20% off</span>';
+      yrEl.innerHTML='<b>$'+perMonth+'/mo</b> <span style="color:var(--mut-2)">after 20% off</span> Â· <span style="color:#10b981">save $'+save+'</span>';
+    } else if(!isNaN(base)){
+      if(priceEl) priceEl.innerHTML='$'+base+'<small>/mo</small> <span class="yearly-badge">20% off</span>';
+      yrEl.innerHTML='';
+    }
+  });
+  // custom stays Custom only â€” no price even on yearly
+  const cEl=document.getElementById('yr-custom');
+  const cpEl=document.getElementById('price-custom');
+  if(cpEl) cpEl.innerHTML='Custom<small></small>';
+  cEl.innerHTML='';
+}
+setCycle('m');
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>

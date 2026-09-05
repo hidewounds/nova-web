@@ -1,18 +1,18 @@
-/* NOVA checkout — Add-ons Edition */
+/* NOVA checkout — Curated 4 plans + 20% yearly */
 (function(){
   var PLANS={
-    launch:{label:"Launch",m:29,y:290},
-    growth:{label:"Growth",m:79,y:790},
-    scale:{label:"Scale",m:199,y:1990},
-    unlimited:{label:"Unlimited",m:499,y:4990}
+    launch:{label:"Launch",m:29,y:278},
+    growth:{label:"Growth",m:79,y:758},
+    scale:{label:"Scale",m:199,y:1910},
+    custom:{label:"Custom",m:499,y:4790}
   };
-  var SETUP={launch:99,growth:199,scale:499,unlimited:999};
+  var SETUP={launch:99,growth:199,scale:499,custom:999};
   var ADDON_PRICES={
-    multi_unlock:{launch:{m:20,y:200}, growth:{m:0,y:0}, scale:{m:0,y:0}, unlimited:{m:0,y:0}, label:"Multi-Agent Unlock"},
-    extra_agent:{launch:{m:25,y:250}, growth:{m:15,y:150}, scale:{m:9,y:90}, unlimited:{m:0,y:0}, label:"Extra Agent (deprecated — unified)"},
-    voice_channel:{launch:{m:29,y:290}, growth:{m:19,y:190}, scale:{m:12,y:120}, unlimited:{m:0,y:0}, label:"Voice Channel"},
-    multilanguage:{launch:{m:15,y:150}, growth:{m:12,y:120}, scale:{m:8,y:80}, unlimited:{m:0,y:0}, label:"Multi-Language"},
-    custom_behaviour:{launch:{m:15,y:150}, growth:{m:12,y:120}, scale:{m:9,y:90}, unlimited:{m:0,y:0}, label:"Custom Behaviour Pack (5 extra rules)"}
+    multi_unlock:{launch:{m:20,y:192}, growth:{m:0,y:0}, scale:{m:0,y:0}, custom:{m:0,y:0}, label:"Multi-Agent Unlock"},
+    extra_agent:{launch:{m:25,y:240}, growth:{m:15,y:144}, scale:{m:9,y:86}, custom:{m:0,y:0}, label:"Extra Agent (deprecated — unified)"},
+    voice_channel:{launch:{m:29,y:278}, growth:{m:19,y:182}, scale:{m:0,y:0}, custom:{m:0,y:0}, label:"Voice Channel"},
+    multilanguage:{launch:{m:15,y:144}, growth:{m:12,y:115}, scale:{m:0,y:0}, custom:{m:0,y:0}, label:"Multi-Language"},
+    custom_behaviour:{launch:{m:15,y:144}, growth:{m:12,y:115}, scale:{m:0,y:0}, custom:{m:0,y:0}, label:"Custom Behaviour Pack (5 extra rules)"}
   };
   var plan="growth", cycle="m";
   var addons={multi_unlock:false, extra_agent:0, voice_channel:false, multilanguage:false, custom_behaviour:0};
@@ -72,9 +72,11 @@
       if(pm) pm.classList.toggle("on",c==="m");
       if(py) py.classList.toggle("on",c==="y");
     }
-    ["launch","growth","scale","unlimited"].forEach(function(p){
+    ["launch","growth","scale","custom"].forEach(function(p){
       var el=$("op-"+p);
-      if(el) el.textContent="$"+PLANS[p][c==="y"?"y":"m"]+(c==="y"?"/yr":"/mo");
+      if(!el) return;
+      if(p==="custom"){ el.textContent="Custom"; }
+      else el.textContent="$"+PLANS[p][c==="y"?"y":"m"]+(c==="y"?"/yr":"/mo");
     });
     render();
   }
@@ -108,7 +110,7 @@
     var setupIncluded=cycle==="y";
     var sPlan=$("sPlan"), sSub=$("sSub"), sSetup=$("sSetup"), sDisc=$("sDisc"), sThen=$("sThen"), payBtn=$("payBtn"), sAddons=$("sAddons");
     if(sPlan) sPlan.textContent=P.label+" plan ("+(cycle==="y"?"yearly":"monthly")+")";
-    if(sSub) sSub.textContent="$"+P[cycle]+per;
+    if(sSub) sSub.textContent= plan==="custom" ? "Custom" : "$"+P[cycle]+per;
     // add-ons list
     if(sAddons){
       var html="";
@@ -148,9 +150,9 @@
     var base=P[cycle];
     var addT=addonTotal();
     var total=base+addT;
-    if(sDisc) sDisc.textContent=total;
-    if(sThen) sThen.textContent="Then $"+ (PLANS[plan].m + (function(){ var a=0; if(addons.multi_unlock) a+=ADDON_PRICES.multi_unlock[plan].m; if(addons.extra_agent) a+=ADDON_PRICES.extra_agent[plan].m*addons.extra_agent; if(addons.voice_channel) a+=ADDON_PRICES.voice_channel[plan].m; if(addons.multilanguage) a+=ADDON_PRICES.multilanguage[plan].m; if(addons.custom_behaviour) a+=ADDON_PRICES.custom_behaviour[plan].m*addons.custom_behaviour; return a; })()) +"/mo starting day 15"+(setupIncluded?" · Annual billing — you save 2 months.":" · Cancel anytime before that and pay nothing.");
-    if(payBtn) payBtn.textContent="Start free trial — $0.00 today" + (addT ? " · then $"+total+per : "");
+    if(sDisc) sDisc.textContent= plan==="custom" ? "Custom" : total;
+    if(sThen) sThen.textContent= plan==="custom" ? "Bespoke — book a call for pricing" : "Then $"+ (PLANS[plan].m + (function(){ var a=0; if(addons.multi_unlock) a+=ADDON_PRICES.multi_unlock[plan].m; if(addons.extra_agent) a+=ADDON_PRICES.extra_agent[plan].m*addons.extra_agent; if(addons.voice_channel) a+=ADDON_PRICES.voice_channel[plan].m; if(addons.multilanguage) a+=ADDON_PRICES.multilanguage[plan].m; if(addons.custom_behaviour) a+=ADDON_PRICES.custom_behaviour[plan].m*addons.custom_behaviour; return a; })()) +"/mo starting day 15"+(setupIncluded?" · Annual billing — you save 2 months.":" · Cancel anytime before that and pay nothing.");
+    if(payBtn) payBtn.textContent= plan==="custom" ? "Book a Call — bespoke" : "Start free trial — $0.00 today" + (addT ? " · then $"+total+per : "");
     try{
       var qs=new URLSearchParams({plan:plan, cycle:cycle});
       if(addons.multi_unlock) qs.set("addon_multi","1");
